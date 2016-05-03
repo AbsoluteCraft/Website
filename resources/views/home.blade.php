@@ -1,0 +1,52 @@
+@extends('layouts.master', ['page' => 'home'])
+
+@section('content')
+    <main class="home">
+        <div class="row">
+            <div class="item item-lg">
+                <div class="item-embed">
+                    <iframe src="http://www.youtube.com/embed/NZRzY8j7MW4" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-embed">
+                    <iframe src="http://www.youtube.com/embed/R2xeRW2AVNc" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-embed">
+                    <a href="http://us10.campaign-archive1.com/?u=bc99df9c74d3261fdc46864d9&id=2f52a0e952"><img src="{{ asset('assets/news-absoluterpg.jpg') }}" alt="July Newsletter 2015"></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="item">
+                <div class="item-embed">
+                    <a href="http://us10.campaign-archive2.com/?u=bc99df9c74d3261fdc46864d9&id=5e22c6e83b"><img src="{{ asset('assets/new-hierarchy.jpg') }}" alt="May Newsletter 2015"></a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-embed">
+                    <a href="http://us10.campaign-archive1.com/?u=bc99df9c74d3261fdc46864d9&id=1ae22da122"><img src="{{ asset('assets/april-newsletter-2015.jpg') }}" alt="April Newsletter 2015"></a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-embed">
+                    <a href="news/monthly-minigames"><img src="{{ asset('assets/monthly-minigames.jpg') }}" alt="Monthly Minigames"></a>
+                </div>
+            </div>
+        </div>
+        <section class="apply">
+            <div class="container">
+    			<div class="col-sm-8">
+    				<h1>Got what it takes?</h1>
+    				<p>Join our team of talented builders and work on some of the coolest Minecraft projects in the world. Submit your previous work or current projects, show us or Planet Minecraft profile or create an impressive plot on the server and you could be accepted and given the <span class="text-success">[Builder]</span> rank.</p>
+    				<a href="apply/builder" class="btn btn-success">Apply today</a>
+    			</div>
+    			<div class="col-sm-4">
+    				<img src="{{ asset('assets/apartments.png') }}" alt="Apartments Render" class="img-responsive">
+    			</div>
+    		</div>
+        </section>
+    </main>
+@stop
