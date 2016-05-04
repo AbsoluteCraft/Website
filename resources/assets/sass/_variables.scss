@@ -1,4 +1,15 @@
-$brand-primary: #449D44;
+$primary: #449D44;
+$darkgrey: #262626;
+$operator: #F55;
+$moderator: #55F;
+$builder: #0A0;
+$vip: #FA0;
+$voter: #0AA;
+$player: #FF5;
+$info: #0AA;
+$success: #5F5;
+
+$brand-primary: $primary;
 
 $btn-primary-border: transparent;
 
@@ -9,3 +20,5 @@ $border-radius-small: 0;
 $screen-sm: 768px;
 $screen-md: 992px;
 $screen-lg: 1200px;
+
+$section-padding: 80px;

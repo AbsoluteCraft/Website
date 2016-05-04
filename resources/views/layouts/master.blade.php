@@ -33,14 +33,19 @@
                 <span class="divider"></span>
                 @if(Auth::check())
                     <button type="button" class="btn btn-sm btn-user">
-                        <img src="https://crafatar.com/avatars/{{ Auth::user()->uuid }}?size=16&overlay&default=371e57a02c0e4875ab952373447b63db" alt="{{ Auth::user()->username }}">
+                        <img src="https://crafatar.com/avatars/{{ Auth::user()->username }}?size=16&overlay&default=371e57a02c0e4875ab952373447b63db" alt="{{ Auth::user()->username }}">
                     </button>
                 @else
-                    <a href="login" class="btn btn-user">
-                        <img src="https://crafatar.com/avatars/371e57a02c0e4875ab952373447b63db?size=16&overlay" alt="Guest">
-                    </a>
+                    <div class="dropdown">
+                        <a href="{{ route('auth.login') }}" id="dropdown-user" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn btn-user">
+                            <img src="https://crafatar.com/avatars/371e57a02c0e4875ab952373447b63db?size=16&overlay" alt="Guest">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown-user">
+                            <li><a href="{{ route('auth.login') }}">Login</a></li>
+                            <li><a href="{{ route('auth.register') }}">Register</a></li>
+                        </ul>
+                    </div>
                 @endif
-                </button>
                 <button type="button" class="btn btn-sm btn-cart"><span class="fa fa-shopping-cart" aria-hidden="true"></span></button>
             </nav>
         </div>
@@ -78,5 +83,7 @@
         <p>Server online</p>
         <span class="fa fa-check-circle-o" aria-hidden="true"></span>
     </div>
+
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>

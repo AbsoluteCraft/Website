@@ -10,7 +10,7 @@
         top: 0;
         left: 0;
         right: 0;
-        height: 200px;
+        height: 100%;
         background: linear-gradient(to bottom, rgba(0, 0 , 0,0.5) 0%,rgba(0, 0, 0, 0) 100%);
         content: '';
     }
@@ -18,6 +18,10 @@
     &.home {
         @include respond-to(md) {
             min-height: 90vh;
+        }
+
+        &:before {
+            height: 200px;
         }
     }
 
@@ -64,7 +68,7 @@
         float: right;
         padding: 12px 0 0;
 
-        a {
+        > a {
             padding-bottom: 5px;
             margin: 0 10px;
             border-bottom: 3px solid transparent;
@@ -73,7 +77,16 @@
             transition: all 0.2s;
 
             &.active, &:hover, &:focus {
-                border-color: $brand-primary;
+                border-color: $primary;
+            }
+        }
+
+        .dropdown {
+            display: inline-block;
+
+            > a {
+                background: none;
+                box-shadow: none;
             }
         }
 
@@ -98,6 +111,9 @@
             top: -2px;
             margin: 0;
             padding-right: 5px;
+            background: none;
+            box-shadow: none;
+            outline: none;
         }
 
         .btn-cart {
@@ -116,7 +132,7 @@
         h3 {
             margin-bottom: 0;
             font-size: 1.5em;
-            color: $brand-primary;
+            color: $primary;
         }
         h2 {
             margin-top: 0.1em;

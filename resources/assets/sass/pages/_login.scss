@@ -1,0 +1,35 @@
+main.login {
+	padding: $section-padding 0;
+	background: $darkgrey;
+	text-align: center;
+	color: #FFF;
+
+	form {
+		transition: all 0.4s ease;
+	}
+	h3 {
+		margin: 50px 0 30px;
+	}
+	.login-avatar {
+		border-radius: 50%;
+	}
+	.form-group:first-child {
+		margin-bottom: 25px;
+	}
+	.form-control {
+		padding: 25px;
+		transition: all 0.4s ease;
+	}
+	.btn-primary {
+		margin-bottom: 20px;
+	}
+	input[type="password"] {
+		font-size: 32px;
+
+		&::-webkit-input-placeholder {
+			position: relative;
+			top: -7px;
+			font-size: 14px;
+		}
+	}
+}

@@ -14,6 +14,8 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix.sass('app.scss', 'public/css/style.css');
 
+    mix.browserify('app.js', 'public/js/script.js');
+
     mix.browserSync({
         proxy: 'local.ac'
     });

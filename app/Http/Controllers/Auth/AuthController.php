@@ -2,26 +2,20 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Repositories\MojangRepository;
 use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
-class AuthController extends Controller
-{
-    /*
-    |--------------------------------------------------------------------------
-    | Registration & Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users, as well as the
-    | authentication of existing users. By default, this controller uses
-    | a simple trait to add these behaviors. Why don't you explore it?
-    |
-    */
+class AuthController extends Controller {
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+
+    private $mojangRepository;
 
     /**
      * Where to redirect users after login / registration.
@@ -30,43 +24,42 @@ class AuthController extends Controller
      */
     protected $redirectTo = '/';
 
-    /**
-     * Create a new authentication controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
+    public function __construct(MojangRepository $mojangRepository) {
+        $this->mojangRepository = $mojangRepository;
+
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+    public function postRegister(Request $request) {
+        $this->validate($request, [
+            'username' => 'required|min:3|max:16|unique:users',
+            'code' => 'required|array|arraylength:4',
+            'password' => 'required|min:8|confirmed',
+            'email' => 'required|email|unique:users',
+            'location' => 'required',
+            'dob' => 'required|date'
         ]);
+
+        $player = $this->mojangRepository->getUserInfo($request->get('username'));
+
+        if(!$player) {
+            return redirect()->back()
+                ->withErrors(['username' => 'This username does not exist'])
+                ->withInput();
+        }
+
+        $user = User::create([
+            'username' => $request->get('username'),
+            'uuid' => $player->id,
+            'email' => $request->get('email'),
+            'password' => bcrypt($request->get('password')),
+            'location' => $request->get('location'),
+            'dob' => $request->get('dob')
+        ]);
+
+        Auth::guard($this->getGuard())->login($user);
+
+        return redirect($this->redirectPath());
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
-    }
 }

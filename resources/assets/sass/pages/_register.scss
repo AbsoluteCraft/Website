@@ -1,0 +1,24 @@
+main.register {
+	padding: 50px 0;
+	background: #262626;
+	color: #FFF;
+
+	h3 {
+		margin-bottom: 30px;
+		font-size: 20px;
+	}
+	#register-avatar {
+		padding-right: 10px;
+		vertical-align: top;
+	}
+	.codes {
+		display: inline;
+		width: 57px;
+	}
+	p {
+		padding: 10px 0 20px;
+	}
+	.btn-primary {
+		margin-top: 20px;
+	}
+}
