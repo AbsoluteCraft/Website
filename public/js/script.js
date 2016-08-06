@@ -12223,11 +12223,103 @@ var bootstrap = require('bootstrap');
 
 $(function () {
 
+    require('./modules/copy-ip');
+    require('./modules/cart');
+
     $('[data-toggle="tooltip"]').tooltip();
     $('[data-toggle="popover"]').popover();
 });
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"bootstrap":1,"jquery":14}]},{},[15]);
+},{"./modules/cart":16,"./modules/copy-ip":17,"bootstrap":1,"jquery":14}],16:[function(require,module,exports){
+'use strict';
+
+$('.btn-cart').popover({
+    trigger: 'click',
+    placement: 'bottom',
+    html: 'true',
+    title: 'Cart',
+    content: 'Cart is empty',
+    template: '<div class="popover popover-cart">' + '<div class="arrow"></div>' + '<h3 class="popover-title"></h3>' + '<div class="popover-content"></div>' + '<div class="popover-footer">' + '<button type="button" class="btn btn-primary btn-sm popover-submit">Checkout</button>&nbsp;' + '<a href="cart" class="btn btn-default btn-sm">View Cart</a>' + '</div>' + '</div>'
+}).on('shown', function () {
+    $('.popover-textarea').val($(this).text()).focus();
+    //update link text on submit
+    $('.popover-submit').click(function () {
+        $(this).text($('.popover-textarea').val());
+        $(this).popover('hide');
+    });
+});
+
+},{}],17:[function(require,module,exports){
+'use strict';
+
+function copyMessage(el, msgEl) {
+    var succeed = copy(el);
+    if (!succeed) {
+        prompt('Press Ctrl/Cmd+C to copy our IP to your clipboard', el.innerHTML);
+    } else {
+        $(msgEl).tooltip({
+            placement: 'bottom',
+            title: 'Copied!',
+            trigger: 'manual'
+        }).tooltip('show');
+
+        window.setTimeout(function () {
+            $(msgEl).tooltip('destroy');
+        }, 1000);
+    }
+}
+
+function copy(elem) {
+    var targetId = "_hiddenCopyText_";
+    var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
+    var origSelectionStart, origSelectionEnd;
+    if (isInput) {
+        target = elem;
+        origSelectionStart = elem.selectionStart;
+        origSelectionEnd = elem.selectionEnd;
+    } else {
+        target = document.getElementById(targetId);
+        if (!target) {
+            var target = document.createElement("textarea");
+            target.style.position = "absolute";
+            target.style.left = "-9999px";
+            target.style.top = "0";
+            target.id = targetId;
+            document.body.appendChild(target);
+        }
+        target.textContent = elem.textContent;
+    }
+    var currentFocus = document.activeElement;
+    target.focus();
+    target.setSelectionRange(0, target.value.length);
+
+    var succeed;
+    try {
+        succeed = document.execCommand("copy");
+    } catch (e) {
+        succeed = false;
+    }
+
+    if (currentFocus && typeof currentFocus.focus === "function") {
+        currentFocus.focus();
+    }
+
+    if (isInput) {
+        elem.setSelectionRange(origSelectionStart, origSelectionEnd);
+    } else {
+        target.textContent = "";
+    }
+    return succeed;
+}
+
+var buttons = document.querySelectorAll('.btn-copy-ip');
+Array.prototype.forEach.call(buttons, function (btn) {
+    btn.addEventListener('click', function (e) {
+        copyMessage(document.getElementById("ip-address"), btn);
+    });
+});
+
+},{}]},{},[15]);
 
 //# sourceMappingURL=script.js.map

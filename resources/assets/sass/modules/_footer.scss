@@ -2,23 +2,51 @@
     clear: left;
     padding: 50px 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
+    background: #FFF;
 
-    .logo {
-        float: left;
-        width: 130px;
-        padding-right: 50px;
+    .logo img {
+        width: 100px;
     }
 
-    .nav {
+    .nav, form {
         padding-left: 130px;
 
         @include respond-to(sm) {
             padding-left: 0;
         }
 
+        &:first-of-type h2 {
+            margin-top: 0;
+        }
+
+        h2 {
+            margin-top: 1em;
+            font-size: 1em;
+            text-transform: uppercase;
+            color: #666;
+
+            @include respond-to(sm) {
+                margin-top: 0;
+            }
+        }
+
         a {
             display: block;
             line-height: 2em;
+        }
+    }
+    .form-control {
+        background: #F3F3F3;
+        color: inherit;
+
+        @include respond-to(md) {
+            width: 300px;
+        }
+    }
+    @include respond-to(sm) {
+        .btn-join {
+            position: relative;
+            left: -3px;
         }
     }
 }

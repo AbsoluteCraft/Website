@@ -7928,6 +7928,19 @@ h1, h2, h3 {
   margin-top: 0;
   font-weight: bold; }
 
+.popover-cart {
+  width: 300px;
+  color: #333; }
+
+.popover-footer {
+  margin: 0;
+  padding: 8px 14px;
+  border-top: 1px solid #ebebeb;
+  background: #F7F7F7;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px; }
+
 .header {
   position: relative;
   padding-bottom: 20px;
@@ -7993,12 +8006,12 @@ h1, h2, h3 {
       position: relative;
       top: 1px;
       border-right: 1px solid rgba(255, 255, 255, 0.2); }
-    .header .nav .btn {
+    .header .nav > .btn, .header .nav .dropdown .btn {
       position: relative;
       border: none;
       background: none;
       line-height: initial; }
-      .header .nav .btn:hover, .header .nav .btn:focus {
+      .header .nav > .btn:hover, .header .nav > .btn:focus, .header .nav .dropdown .btn:hover, .header .nav .dropdown .btn:focus {
         color: #FFF; }
     .header .nav .btn-user {
       top: -2px;
@@ -8042,19 +8055,38 @@ h1, h2, h3 {
 .footer {
   clear: left;
   padding: 50px 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1); }
-  .footer .logo {
-    float: left;
-    width: 130px;
-    padding-right: 50px; }
-  .footer .nav {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background: #FFF; }
+  .footer .logo img {
+    width: 100px; }
+  .footer .nav, .footer form {
     padding-left: 130px; }
     @media (min-width: 768px) {
-      .footer .nav {
+      .footer .nav, .footer form {
         padding-left: 0; } }
-    .footer .nav a {
+    .footer .nav:first-of-type h2, .footer form:first-of-type h2 {
+      margin-top: 0; }
+    .footer .nav h2, .footer form h2 {
+      margin-top: 1em;
+      font-size: 1em;
+      text-transform: uppercase;
+      color: #666; }
+      @media (min-width: 768px) {
+        .footer .nav h2, .footer form h2 {
+          margin-top: 0; } }
+    .footer .nav a, .footer form a {
       display: block;
       line-height: 2em; }
+  .footer .form-control {
+    background: #F3F3F3;
+    color: inherit; }
+    @media (min-width: 992px) {
+      .footer .form-control {
+        width: 300px; } }
+  @media (min-width: 768px) {
+    .footer .btn-join {
+      position: relative;
+      left: -3px; } }
 
 .sticky-status {
   position: fixed;
@@ -8620,6 +8652,11 @@ html[dir=rtl] .select2-search-choice-close {
 .control-group.success .select2-container .select2-choice div {
   border-left: 1px solid #468847 !important;
   background: #DFF0D8 !important; }
+
+main.apply {
+  padding: 80px 0;
+  background: #262626;
+  color: #FFF; }
 
 main.home .row {
   margin: 0; }

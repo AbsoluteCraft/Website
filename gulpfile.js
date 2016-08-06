@@ -17,6 +17,7 @@ elixir(function(mix) {
     mix.browserify('app.js', 'public/js/script.js');
 
     mix.browserSync({
-        proxy: 'local.ac'
+        proxy: 'local.ac',
+        open: false
     });
 });

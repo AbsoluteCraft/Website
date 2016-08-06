@@ -18,6 +18,7 @@
                     <a href="http://www.planetminecraft.com/TeamAbsolute" title="Planet Minecraft"><span class="fa fa-globe" aria-hidden="true"></span></a>
                 </nav>
                 <button type="button" class="btn btn-primary btn-sm btn-copy-ip">Copy IP</button>
+                <span class="hide" id="ip-address">MC-AC.COM</span>
             </div>
         </div>
         <div class="header-nav container">
@@ -55,7 +56,7 @@
                     <h3>We are TeamAbsolute</h3>
                     <h2>Build Great Things</h2>
                     <p>We're a Creative Minecraft server with a fantastic build team called TeamAbsolute. We also host unique survival worlds and exclusive games like Adapt and BuildIt!</p>
-                    <a href="apply" class="btn btn-primary btn-lg">Join the team</a>
+                    <a href="https://discordapp.com/invite/0djSCNQGGSdLPwwM" class="btn btn-primary btn-lg">Join us on Discord to apply</a>
                 </div>
             </div>
         @endif
@@ -65,17 +66,28 @@
 
     <footer class="footer">
         <div class="container">
-            <img src="{{ asset('img/avatar.png') }}" alt="AbsoluteCraft Avatar" class="logo">
-            <nav class="nav col-sm-4">
+            <div class="logo col-xs-2">
+                <img src="{{ asset('img/avatar.png') }}" alt="AbsoluteCraft Avatar">
+            </div>
+            <nav class="nav col-sm-2">
+                <h2>Help & Support</h2>
                 <a href="support">Support</a>
                 <a href="rules">Rules</a>
                 <a href="status">Status</a>
                 <a href="staff">Staff</a>
             </nav>
-            <nav class="nav col-sm-4">
+            <nav class="nav col-sm-2">
+                <h2>Terms</h2>
                 <a href="terms">Terms of Service</a>
                 <a href="privacy">Privacy Policy</a>
             </nav>
+            <form class="form-inline col-sm-6">
+                <h2>Join our newsletter</h2>
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control" placeholder="Email">
+                </div>
+                <button type="submit" class="btn btn-primary btn-join">Join</button>
+            </form>
         </div>
     </footer>
 

@@ -9,3 +9,10 @@ Route::get('register', ['as' => 'auth.register', 'uses' => 'Auth\AuthController@
 Route::post('register', ['as' => 'auth.register-post', 'uses' => 'Auth\AuthController@postRegister']);
 
 Route::get('recover/password', ['as' => 'auth.recover-password', 'uses' => 'Auth\PasswordController@getReset']);
+
+Route::group(['middleware' => 'auth'], function() {
+
+	Route::get('apply', ['as' => 'apply', 'uses' => 'ApplyController@get']);
+	Route::post('apply', ['as' => 'apply-post', 'uses' => 'ApplyController@post']);
+
+});
