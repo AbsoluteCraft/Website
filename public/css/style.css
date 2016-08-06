@@ -7922,7 +7922,8 @@ button.close {
   box-sizing: border-box; }
 
 body {
-  font-family: 'Open Sans', sans-serif; }
+  font-family: 'Open Sans', sans-serif;
+  background: #449D44; }
 
 h1, h2, h3 {
   margin-top: 0;
@@ -8658,45 +8659,42 @@ main.apply {
   background: #262626;
   color: #FFF; }
 
-main.home .row {
-  margin: 0; }
-
-main.home .item {
-  position: relative;
-  float: left;
-  width: 33.3%; }
-  main.home .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; }
-
-main.home .item-lg {
-  width: 66.6%; }
-
-main.home .item-embed {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  max-width: 100%; }
-  main.home .item-embed iframe, main.home .item-embed img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; }
-
-main.home .apply {
-  padding-top: 50px;
-  background: #262626;
-  color: #FFF; }
-  main.home .apply h1 {
-    margin-top: 80px;
-    font-size: 2em; }
-  main.home .apply p {
-    margin: 30px 0; }
-  main.home .apply .btn {
-    margin-bottom: 20px; }
+main.home {
+  background: #262626; }
+  main.home .row {
+    margin: 0; }
+  main.home .item {
+    position: relative;
+    float: left;
+    width: 33.3%; }
+    main.home .item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; }
+  main.home .item-lg {
+    width: 66.6%; }
+  main.home .item-embed {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%; }
+    main.home .item-embed iframe, main.home .item-embed img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
+  main.home .apply {
+    padding-top: 50px;
+    color: #FFF; }
+    main.home .apply h1 {
+      margin-top: 80px;
+      font-size: 2em; }
+    main.home .apply p {
+      margin: 30px 0; }
+    main.home .apply .btn {
+      margin-bottom: 20px; }
 
 main.login {
   padding: 80px 0;
@@ -8723,6 +8721,128 @@ main.login {
       top: -7px;
       font-size: 14px; }
 
+main.projects {
+  padding: 50px 0;
+  background: #262626;
+  text-align: center;
+  color: #FFF; }
+  main.projects .projects-intro {
+    padding-bottom: 30px; }
+    main.projects .projects-intro h1 {
+      margin-bottom: 40px;
+      font-size: 2em; }
+  main.projects .wrapper {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  main.projects .project {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+    margin: 10px 1%;
+    background: #3085A3;
+    background: linear-gradient(-45deg, #EC65B7 0%, #05E0D8 100%);
+    text-align: center;
+    cursor: pointer; }
+    main.projects .project img {
+      display: block;
+      position: relative;
+      max-width: 100%;
+      min-height: 100%;
+      opacity: 0.7;
+      transition: opacity 0.35s; }
+    main.projects .project figcaption {
+      padding: 2em;
+      font-size: 1.25em;
+      text-transform: uppercase;
+      color: #FFF;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden; }
+      main.projects .project figcaption:before, main.projects .project figcaption:after {
+        pointer-events: none; }
+    main.projects .project figcaption, main.projects .project figcaption > a {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
+    main.projects .project figcaption > a {
+      z-index: 1000;
+      opacity: 0;
+      font-size: 0;
+      text-indent: 200%;
+      white-space: nowrap; }
+    main.projects .project h2 {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      width: 100%;
+      height: 50%;
+      padding: 11px 15px;
+      border: 2px solid #FFF;
+      font-size: 1em;
+      font-weight: 300;
+      text-align: left;
+      word-wrap: break-word;
+      word-spacing: -0.15em;
+      transition: -webkit-transform 0.35s;
+      transition: transform 0.35s; }
+      main.projects .project h2.two-line {
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-align-items: initial;
+        -ms-flex-align: initial;
+        align-items: initial;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center; }
+      main.projects .project h2 span {
+        font-weight: 800; }
+    main.projects .project p {
+      float: right;
+      padding: 10px;
+      font-size: 68.5%;
+      text-align: right;
+      letter-spacing: 1px;
+      transition: opacity 0.35s, -webkit-transform 0.35s;
+      transition: opacity 0.35s, transform 0.35s; }
+    @media (min-width: 768px) {
+      main.projects .project {
+        width: 48%; } }
+    @media (min-width: 992px) {
+      main.projects .project h2 {
+        width: 62%;
+        font-size: 1.75em;
+        -webkit-transform: translate3d(10px, 10px, 0);
+        transform: translate3d(10px, 10px, 0); }
+      main.projects .project p {
+        width: 38%;
+        height: 50%;
+        padding: 20px;
+        opacity: 0;
+        border: 2px solid #FFF;
+        -webkit-transform: translate3d(-50%, -50%, 0);
+        transform: translate3d(-50%, -50%, 0); }
+      main.projects .project:hover h2 {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0); }
+      main.projects .project:hover p {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0); }
+      main.projects .project:hover img {
+        opacity: 0.8; } }
+
 main.register {
   padding: 50px 0;
   background: #262626;
@@ -8740,5 +8860,19 @@ main.register {
     padding: 10px 0 20px; }
   main.register .btn-primary {
     margin-top: 20px; }
+
+main.shop {
+  padding: 20px 0;
+  background: #FFF; }
+  main.shop .shop-intro {
+    margin-bottom: 20px;
+    padding: 15px 30px;
+    border: 1px solid #EFEFEF;
+    border-radius: 4px; }
+    main.shop .shop-intro svg {
+      margin-right: 30px;
+      float: left; }
+    main.shop .shop-intro p {
+      padding-top: 20px; }
 
 /*# sourceMappingURL=style.css.map */

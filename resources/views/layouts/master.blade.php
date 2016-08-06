@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>AbsoluteCraft</title>
+    <title>@if(isset($title)){{ $title . ' | AbsoluteCraft' }}@else{{ 'AbsoluteCraft - Creative Minecraft Server' }}@endif</title>
 
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
 </head>

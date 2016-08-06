@@ -1,4 +1,6 @@
 main.home {
+	background: $darkgrey;
+
 	.row {
 		margin: 0;
 	}
@@ -37,7 +39,6 @@ main.home {
 
 	.apply {
 		padding-top: 50px;
-		background: #262626;
 		color: #FFF;
 
 		h1 {

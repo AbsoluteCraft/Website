@@ -1,6 +1,34 @@
 <?php
 
+/*
+|--------------------------------------------------------------------------
+| Homepage
+|--------------------------------------------------------------------------
+*/
+
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@get']);
+
+/*
+|--------------------------------------------------------------------------
+| Token Shop
+|--------------------------------------------------------------------------
+*/
+
+Route::get('shop', ['as' => 'shop', 'uses' => 'ShopController@get']);
+
+/*
+|--------------------------------------------------------------------------
+| Projects
+|--------------------------------------------------------------------------
+*/
+
+Route::get('projects', ['as' => 'projects', 'uses' => 'ProjectsController@get']);
+
+/*
+|--------------------------------------------------------------------------
+| Account / Auth
+|--------------------------------------------------------------------------
+*/
 
 Route::get('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@getLogin']);
 Route::post('login', ['as' => 'auth.login-post', 'uses' => 'Auth\AuthController@postLogin']);
@@ -12,7 +40,8 @@ Route::get('recover/password', ['as' => 'auth.recover-password', 'uses' => 'Auth
 
 Route::group(['middleware' => 'auth'], function() {
 
-	Route::get('apply', ['as' => 'apply', 'uses' => 'ApplyController@get']);
-	Route::post('apply', ['as' => 'apply-post', 'uses' => 'ApplyController@post']);
+	// Deprecated for Discord Applications?
+//	Route::get('apply', ['as' => 'apply', 'uses' => 'ApplyController@get']);
+//	Route::post('apply', ['as' => 'apply-post', 'uses' => 'ApplyController@post']);
 
 });
