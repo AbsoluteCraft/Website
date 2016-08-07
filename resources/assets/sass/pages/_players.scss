@@ -1,0 +1,39 @@
+main.players {
+	.player-strap {
+		margin-bottom: 30px;
+		padding: 15px 0;
+		background: $darkgrey;
+		color: #FFF;
+
+		h1 {
+			margin: 0;
+			padding-top: 5px;
+			font-size: 1.5em;
+		}
+		form {
+			text-align: right;
+
+			input {
+				width: 70%;
+			}
+			button {
+				position: relative;
+				left: -4px;
+			}
+		}
+	}
+
+	section {
+		margin-bottom: 20px;
+	}
+
+	h2 {
+		font-size: 1.5em;
+	}
+	a {
+		display: inline-block;
+	}
+	img {
+		margin: 8px;
+	}
+}

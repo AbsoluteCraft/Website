@@ -26,6 +26,16 @@ Route::get('projects', ['as' => 'projects', 'uses' => 'ProjectsController@get'])
 
 /*
 |--------------------------------------------------------------------------
+| Players
+|--------------------------------------------------------------------------
+*/
+
+Route::get('players', ['as' => 'players', 'uses' => 'PlayerController@getAll']);
+Route::get('player', ['as' => 'player.search', 'uses' => 'PlayerController@search']);
+Route::get('player/{username}', ['as' => 'player', 'uses' => 'PlayerController@get']);
+
+/*
+|--------------------------------------------------------------------------
 | Account / Auth
 |--------------------------------------------------------------------------
 */

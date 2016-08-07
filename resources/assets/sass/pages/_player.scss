@@ -1,0 +1,99 @@
+main.player {
+	padding: 50px 0;
+
+	h3 {
+		font-weight: normal;
+	}
+
+	.player-headings {
+		overflow: auto;
+		margin-bottom: 30px;
+		border: 1px solid #EFEFEF;
+		border-top: none;
+	}
+
+	.player-heading {
+		padding: 0;
+
+		&:last-child .caption {
+			text-align: right;
+		}
+
+		figure, .caption {
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+		figure {
+			overflow: hidden;
+			height: 128px;
+		}
+		.caption {
+			padding: 15px;
+
+			h1 {
+				font-size: 1.3em;
+			}
+		}
+	}
+
+	.player-render {
+		background-color: $primary;
+		background-size: cover;
+		text-align: center;
+
+		img {
+			position: relative;
+			top: 7px;
+		}
+	}
+
+	.dynmap-grid {
+		figure {
+			position: relative;
+			padding: 0;
+		}
+
+		a {
+			display: block;
+			position: absolute;
+			top: -200%;
+		}
+
+		img {
+			width: 33.3%;
+		}
+
+		.fa {
+			position: absolute;
+			top: 25%;
+			left: 50%;
+			transform: translate(-50%, -65%);
+			font-size: 4em;
+			color: #FFF;
+		}
+
+		.player-quickstats {
+			padding-top: 12px;
+			padding-bottom: 12px;
+
+			ul {
+				margin-bottom: 0;
+				list-style: none;
+
+				li {
+					line-height: 2em;
+				}
+			}
+
+			svg {
+				width: 20px;
+				vertical-align: text-bottom;
+				margin-right: 5px;
+			}
+		}
+	}
+
+	.bio {
+		margin-top: 10px;
+	}
+}

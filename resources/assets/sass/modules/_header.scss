@@ -25,6 +25,10 @@
         }
     }
 
+    &.has-motd {
+        padding-bottom: 70px;
+    }
+
     .topbar {
         position: relative;
         z-index: 1;
@@ -157,6 +161,66 @@
             padding-right: 30px;
             font-size: 1em;
             text-transform: uppercase;
+        }
+    }
+
+    .motd {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 15px;
+        background: #AAA;
+        color: #FFF;
+
+        &.motd-success {
+            background: $success;
+
+            a {
+                color: darken($success, 20%);
+            }
+        }
+        &.motd-info {
+            background: $info;
+
+            a {
+                color: darken($info, 20%);
+            }
+        }
+        &.motd-warning {
+            background: $warning;
+
+            a {
+                color: darken($warning, 20%);
+            }
+        }
+        &.motd-danger {
+            background: $danger;
+
+            a {
+                color: darken($danger, 20%);
+            }
+        }
+
+        a {
+            text-decoration: underline;
+        }
+
+        .fa {
+            position: relative;
+            top: -1px;
+            margin-right: 10px;
+            vertical-align: middle;
+            font-size: 21px;
+        }
+
+        strong {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        @media(min-width: $screen-md) {
+            height: 50px;
         }
     }
 }

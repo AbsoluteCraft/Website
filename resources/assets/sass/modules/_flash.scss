@@ -1,0 +1,24 @@
+.alert-flash {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	padding: 10px 50px;
+	border: none;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	transform: translateX(-50%);
+	color: #FFF;
+
+	&.alert-success {
+		background: rgba($success, 0.7);
+	}
+	&.alert-info {
+		background: rgba($info, 0.7);
+	}
+	&.alert-warning {
+		background: rgba($warning, 0.7);
+	}
+	&.alert-danger {
+		background: rgba($danger, 0.7);
+	}
+}
