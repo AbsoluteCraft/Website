@@ -8,19 +8,19 @@
                 <a href="http://www.planetminecraft.com/TeamAbsolute" title="Planet Minecraft"><span class="fa fa-globe" aria-hidden="true"></span></a>
             </nav>
             <button type="button" class="btn btn-primary btn-sm btn-copy-ip">Copy IP</button>
-            <span class="hide" id="ip-address">MC-AC.COM</span>
+            <span class="hide" id="ip-address">{{ trans('general.ip') }}</span>
         </div>
     </div>
     <div class="header-nav container">
         <a href="{{ route('home') }}">
-            <img src="{{ asset('img/logo.png')}}" alt="AbsoluteCraft" class="logo">
+            <img src="{{ asset('img/logo.png')}}" alt="{{ trans('general.name') }}" class="logo">
         </a>
         <nav class="nav">
-            <a href="{{ route('home') }}"{{ nav_active($page, 'home') }}>Home</a>
-            <a href="shop"{{ nav_active($page, 'shop') }}>Token Shop</a>
-            <a href="projects"{{ nav_active($page, 'projects') }}>Projects</a>
-            <a href="players"{{ nav_active($page, 'players') }}>Players</a>
-            <a href="leaderboards"{{ nav_active($page, 'leaderboards') }}>Leaderboards</a>
+            <a href="{{ route('home') }}"{{ nav_active($page, 'home') }}>{{ trans('nav.home') }}</a>
+            <a href="shop"{{ nav_active($page, 'shop') }}>{{ trans('nav.shop') }}</a>
+            <a href="projects"{{ nav_active($page, 'projects') }}>{{ trans('nav.projects') }}</a>
+            <a href="players"{{ nav_active($page, 'players') }}>{{ trans('nav.players') }}</a>
+            <a href="leaderboards"{{ nav_active($page, 'leaderboards') }}>{{ trans('nav.leaderboards') }}</a>
             <span class="divider"></span>
             @if(Auth::check())
                 <button type="button" class="btn btn-sm btn-user">
@@ -32,8 +32,8 @@
                         <img src="https://crafatar.com/avatars/371e57a02c0e4875ab952373447b63db?size=16&overlay" alt="Guest">
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown-user">
-                        <li><a href="{{ route('auth.login') }}">Login</a></li>
-                        <li><a href="{{ route('auth.register') }}">Register</a></li>
+                        <li><a href="{{ route('auth.login') }}">{{ trans('nav.login') }}</a></li>
+                        <li><a href="{{ route('auth.register') }}">{{ trans('nav.register') }}</a></li>
                     </ul>
                 </div>
             @endif
@@ -43,10 +43,10 @@
     @if($page == 'home')
         <div class="hero container">
             <div class="col-sm-8 col-sm-offset-2">
-                <h3>We are TeamAbsolute</h3>
-                <h2>Build Great Things</h2>
-                <p>We're a Creative Minecraft server with a fantastic build team called TeamAbsolute. We also host unique survival worlds and exclusive games like Adapt and BuildIt!</p>
-                <a href="https://discordapp.com/invite/0djSCNQGGSdLPwwM" class="btn btn-primary btn-lg">Join us on Discord to apply</a>
+                <h3>{{ trans('home.subtitle') }}</h3>
+                <h2>{{ trans('home.title') }}</h2>
+                <p>{{ trans('home.description') }}</p>
+                <a href="{{ trans('home.discord.code') }}" target="_blank" class="btn btn-primary btn-lg">{{ trans('home.discord.apply') }}</a>
             </div>
         </div>
     @endif

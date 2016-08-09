@@ -5,7 +5,7 @@
         <div class="container">
             <div class="col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
                 <img src="https://crafatar.com/avatars/8667ba71b85a4004af54457a9734eed7" alt="" class="login-avatar">
-                <h3>Login to AbsoluteCraft</h3>
+                <h3>Login to {{ trans('general.name') }}</h3>
                 <form action="{{ route('auth.login-post') }}" method="post" class="form-horizontal">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-group">

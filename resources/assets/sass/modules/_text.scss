@@ -1,0 +1,18 @@
+.text-default {
+	color: $player;
+}
+.text-voter {
+	color: $voter;
+}
+.text-vip {
+	color: $vip;
+}
+.text-builder, .text-probuilder {
+	color: $builder;
+}
+.text-moderator, .text-juniormoderator, .text-seniormoderator {
+	color: $moderator;
+}
+.text-operator {
+	color: $operator;
+}

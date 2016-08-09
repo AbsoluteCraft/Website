@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class PlayerController extends Controller {
 
 	public function get($username) {
-		$player = Player::with('user')
+		$player = Player::with('user', 'economy.balance', 'last_seen')
 			->where('username', $username)
 			->first();
 

@@ -42,9 +42,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-8">
-                        <h1>Got what it takes?</h1>
-                        <p>Join our team of talented builders and work on some of the coolest Minecraft projects in the world. Submit your previous work or current projects, show us or Planet Minecraft profile or create an impressive plot on the server and you could be accepted and given the <span class="text-success">[Builder]</span> rank.</p>
-                        <a href="apply/builder" class="btn btn-success">Apply today</a>
+                        <h1>{{ trans('home.apply.title') }}</h1>
+                        <p>{!! trans('home.apply.content') !!}</p>
+                        <a href="{{ trans('home.discord.code') }}" class="btn btn-success">{{ trans('home.discord.apply') }}</a>
                     </div>
                     <div class="col-sm-4">
                         <img src="{{ asset('assets/apartments.png') }}" alt="Apartments Render" class="img-responsive">

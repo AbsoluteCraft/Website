@@ -1,5 +1,7 @@
 <?php
 
+include('api.php');
+
 /*
 |--------------------------------------------------------------------------
 | Homepage
@@ -49,9 +51,5 @@ Route::post('register', ['as' => 'auth.register-post', 'uses' => 'Auth\AuthContr
 Route::get('recover/password', ['as' => 'auth.recover-password', 'uses' => 'Auth\PasswordController@getReset']);
 
 Route::group(['middleware' => 'auth'], function() {
-
-	// Deprecated for Discord Applications?
-//	Route::get('apply', ['as' => 'apply', 'uses' => 'ApplyController@get']);
-//	Route::post('apply', ['as' => 'apply-post', 'uses' => 'ApplyController@post']);
 
 });

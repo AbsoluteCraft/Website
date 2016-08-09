@@ -4,7 +4,7 @@
     <main class="register">
         <div class="container">
             <div class="col-lg-8 col-lg-offset-2">
-                <h3>Register with AbsoluteCraft</h3>
+                <h3>Register with {{ trans('general.name') }}</h3>
                 <form action="{{ route('auth.register-post') }}" method="post" class="form-horizontal">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-group">
