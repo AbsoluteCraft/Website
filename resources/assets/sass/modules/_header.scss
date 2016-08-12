@@ -15,16 +15,6 @@
         content: '';
     }
 
-    &.home {
-        @include respond-to(md) {
-            min-height: 90vh;
-        }
-
-        &:before {
-            height: 200px;
-        }
-    }
-
     &.has-motd {
         padding-bottom: 70px;
     }
@@ -33,7 +23,7 @@
         position: relative;
         z-index: 1;
         margin-bottom: 20px;
-        padding-top: 10px;
+        padding: 10px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
         .social {
@@ -54,11 +44,19 @@
                 }
             }
         }
-
         .btn-copy-ip {
+            display: none;
             float: right;
             position: relative;
             top: -5px;
+        }
+
+        @media(min-width: 280px) {
+            padding-bottom: 0;
+
+            .btn-copy-ip {
+                display: block;
+            }
         }
     }
 
@@ -67,22 +65,103 @@
         z-index: 1;
     }
 
-    .nav {
+    .logo {
+        width: 357px;
+        max-width: 100%;
+    }
+
+    $bar-width: 32px;
+    $bar-height: 4px;
+    $bar-spacing: 13px;
+
+    .menu {
         display: inline-block;
+        position: relative;
+        z-index: 1001;
         float: right;
-        padding: 12px 0 0;
+        margin-top: -($bar-spacing * 1.2);
+        width: $bar-width;
+        height: $bar-height + ($bar-spacing * 4);
+        border: none;
+        outline: none;
+        background: none;
+        cursor: pointer;
+
+        .bar {
+            position: relative;
+            transform: translateY($bar-spacing);
+            background: rgba(255, 255, 255, 1);
+            transition: all 0ms 300ms;
+
+            &, &:before, &:after {
+                width: $bar-width;
+                height: $bar-height;
+            }
+
+            &:before {
+                position: absolute;
+                left: 0;
+                bottom: $bar-spacing;
+                background: rgba(255, 255, 255, 1);
+                transition: bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+                content: '';
+            }
+            &:after {
+                position: absolute;
+                left: 0;
+                top: $bar-spacing;
+                background: rgba(255, 255, 255, 1);
+                transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+                content: '';
+            }
+        }
+
+        &.active .bar {
+            background: rgba(255, 255, 255, 0);
+
+            &:before {
+                bottom: 0;
+                transform: rotate(-45deg);
+                transition: bottom 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
+            }
+            &:after {
+                top: 0;
+                transform: rotate(45deg);
+                transition: top 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
+            }
+        }
+    }
+
+    &.nav-open {
+        .nav {
+            display: block;
+            opacity: 0;
+        }
+    }
+    &.nav-show {
+        .nav {
+            opacity: 1;
+        }
+    }
+
+    .nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 50px 0;
+        background: $darkgrey;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
 
         > a {
-            padding-bottom: 5px;
-            margin: 0 10px;
-            border-bottom: 3px solid transparent;
-            text-decoration: none;
-            color: #FFF;
-            transition: all 0.2s;
-
-            &.active, &:hover, &:focus {
-                border-color: $primary;
-            }
+            display: block;
+            width: 60%;
+            margin: 10px auto;
+            padding: 10px;
         }
 
         .dropdown {
@@ -118,10 +197,57 @@
             background: none;
             box-shadow: none;
             outline: none;
+
+            img {
+                width: 16px;
+            }
         }
 
         .btn-cart {
-            top: -1px;
+            outline: none;
+        }
+
+        @include respond-to(xl) {
+            padding-top: 5px;
+
+            .btn-user img {
+                width: 32px;
+            }
+            .btn-cart {
+                font-size: 1.4em;
+            }
+        }
+    }
+
+    @include respond-to(md) {
+        .menu {
+            display: none;
+        }
+        .nav {
+            display: inline-block;
+            position: static;
+            float: right;
+            padding: 12px 0 0;
+            background: none;
+            text-align: left;
+
+            > a {
+                display: inline;
+                margin: 0 10px;
+                padding: 0 0 5px;
+                border-bottom: 3px solid transparent;
+                text-decoration: none;
+                color: #FFF;
+                transition: all 0.2s;
+
+                &.active, &:hover, &:focus {
+                    border-color: $primary;
+                }
+            }
+
+            .btn-cart {
+                top: -1px;
+            }
         }
     }
 
@@ -161,6 +287,37 @@
             padding-right: 30px;
             font-size: 1em;
             text-transform: uppercase;
+        }
+    }
+
+    &.home {
+        @include respond-to(md) {
+            min-height: 90vh;
+        }
+
+        @include respond-to(xl) {
+            .hero {
+                .col-sm-8 {
+                    width: 100%;
+                    margin-left: 0;
+                }
+
+                h3 {
+                    font-size: 2em;
+                }
+                h2 {
+                    font-size: 7em;
+                }
+                p {
+                    width: percentage(8 / $grid-columns);
+                    margin-left: percentage(2 / $grid-columns);
+                    font-size: 1.25em;
+                }
+            }
+        }
+
+        &:before {
+            height: 200px;
         }
     }
 

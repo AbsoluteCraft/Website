@@ -13,8 +13,14 @@
     </div>
     <div class="header-nav container">
         <a href="{{ route('home') }}">
-            <img src="{{ asset('img/logo.png')}}" alt="{{ trans('general.name') }}" class="logo">
+            <picture>
+                <source srcset="{{ asset('img/logo.svg') }}">
+                <img src="{{ asset('img/logo.png')}}" alt="{{ trans('general.name') }}" class="logo">
+            </picture>
         </a>
+        <button type="button" class="menu">
+            <div class="bar"></div>
+        </button>
         <nav class="nav">
             <a href="{{ route('home') }}"{{ nav_active($page, 'home') }}>{{ trans('nav.home') }}</a>
             <a href="shop"{{ nav_active($page, 'shop') }}>{{ trans('nav.shop') }}</a>
@@ -29,7 +35,7 @@
             @else
                 <div class="dropdown">
                     <a href="{{ route('auth.login') }}" id="dropdown-user" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn btn-user">
-                        <img src="https://crafatar.com/avatars/371e57a02c0e4875ab952373447b63db?size=16&overlay" alt="Guest">
+                        <img src="{{ player_avatar('371e57a02c0e4875ab952373447b63db') }}" alt="Guest">
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown-user">
                         <li><a href="{{ route('auth.login') }}">{{ trans('nav.login') }}</a></li>

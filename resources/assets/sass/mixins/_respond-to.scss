@@ -16,4 +16,10 @@
       @content;
     }
   }
+
+  @else if $breakpoint == "xl" {
+    @media(min-width: $screen-xl) {
+      @content;
+    }
+  }
 }

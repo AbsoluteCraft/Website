@@ -3,6 +3,7 @@ var bootstrap = require('bootstrap');
 
 $(function() {
 
+    require('./modules/nav');
     require('./modules/copy-ip');
     require('./modules/cart');
 
