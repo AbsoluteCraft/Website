@@ -22,12 +22,12 @@ class Player extends Model {
 		return $this->belongsTo(User::class, 'uuid', 'uuid');
 	}
 
-	public function economy() {
-		return $this->belongsTo(Account::class, 'uuid', 'uuid');
-	}
-
 	public function last_seen() {
 		return $this->hasOne(LastSeen::class);
+	}
+
+	public function economy() {
+		return $this->belongsTo(Account::class, 'uuid', 'uuid');
 	}
 
 	public function scopeNotStaff($query) {
@@ -52,9 +52,18 @@ class Player extends Model {
 			return $this->user->rank;
 		} else {
 			$ranks = config('ranks');
-			return $ranks[1];
+			return (object) $ranks[1];
 		}
 	}
+
+	public function getBackgroundAttribute() {
+		if($this->user) {
+			return $this->user->background;
+		} else {
+			return Background::find(1);
+		}
+	}
+
 
 	public function getBalanceAttribute() {
 		if($this->economy) {
@@ -62,18 +71,6 @@ class Player extends Model {
 		}
 
 		return 0;
-	}
-
-	public function getBackgroundAttribute() {
-		$background = null;
-
-		if($this->user) {
-			$background = Background::find($this->user->profile_background_id);
-		} else {
-			$background =  Background::find(1);
-		}
-
-		return $background->url;
 	}
 
 	public function getDynmapAttribute() {
@@ -97,6 +94,10 @@ class Player extends Model {
 		$grid = new DynmapGrid();
 		$params['url'] = $grid->url . '?' . http_build_query($params);
 		$params['grid'] = $grid->buildGrid($params['x'], $params['z']);
+
+		if($this->last_seen == null) {
+			$params['worldname'] = null;
+		}
 
 		return (object) $params;
 	}

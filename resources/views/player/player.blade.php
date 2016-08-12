@@ -5,7 +5,7 @@
         <div class="container">
             <div class="player-headings">
                 <div class="player-heading col-md-6">
-                    <figure class="player-render" style="background-image: url({{ asset('/assets/profile-backgrounds/' . $player->background) }})">
+                    <figure class="player-render" style="background-image: url({{ asset('/assets/profile-backgrounds/' . $player->background->url) }})">
                         <img src="{{ player_body($player->uuid) }}" alt="{{ $player->username }}">
                     </figure>
                     <div class="caption">
@@ -30,6 +30,8 @@
                                 Online now<br>
                             @elseif($player->last_seen != null)
                                 Last seen: {{ \Carbon\Carbon::parse($player->last_seen->left_at)->diffForHumans() }}<br>
+                            @else
+                                No location data
                             @endif
                             @if(isset($player->dynmap->worldname))
                                 World: {{ $player->dynmap->worldname }}

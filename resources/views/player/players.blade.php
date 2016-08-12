@@ -21,7 +21,7 @@
             <div class="row players">
                 <div class="col-md-4">
                     <h2 class="title">Operators</h2>
-                    @if(count($staff['operator']))
+                    @if(isset($staff['operator']) && count($staff['operator']))
                         <section class="operators">
                             @foreach($staff['operator'] as $player)
                                 <a href="{{ route('player', ['name' => $player->username]) }}">

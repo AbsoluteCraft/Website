@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Player\Background;
 use Golonka\BBCode\BBCodeParser;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -24,6 +25,10 @@ class User extends Authenticatable {
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+	public function background() {
+		return $this->belongsTo(Background::class, 'profile_background_id');
+	}
 
 	/**
 	 * Check the User's rank number is within staff range

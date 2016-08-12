@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class PlayerController extends Controller {
 
 	public function get($username) {
-		$player = Player::with('user', 'economy.balance', 'last_seen')
+		$player = Player::with('user', 'user.background', 'last_seen', 'economy.balance')
 			->where('username', $username)
 			->first();
 
@@ -57,6 +57,7 @@ class PlayerController extends Controller {
 		$staff = User::staff()->get();
 
 		$groupedStaff = [
+			'operators' => [],
 			'moderators' => [],
 			'builders' => []
 		];

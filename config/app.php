@@ -159,6 +159,11 @@ return [
         App\Providers\HelperServiceProvider::class,
         App\Providers\ValidationServiceProvider::class,
 
+		/*
+		 * Package Service Providers...
+		 */
+		Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
     ],
 
     /*
