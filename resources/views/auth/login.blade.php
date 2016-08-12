@@ -11,7 +11,7 @@
                     <div class="form-group">
                         <label for="email" class="sr-only control-label">Email</label>
                         <div class="col-md-12">
-                            <input type="email" name="email" id="email" placeholder="Email" class="form-control" required autofocus{{ old('email') ? ' value="' . old('email') . '"' : '' }}>
+                            <input type="email" name="email" id="email" placeholder="Email" class="form-control" required autofocus value="{{ old('email') ? old('email') : '' }}">
                         </div>
                     </div>
                     @if($errors->has('email'))

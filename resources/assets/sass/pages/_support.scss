@@ -1,0 +1,31 @@
+main.support {
+	padding: 100px 0 150px;
+
+	h1 {
+		margin-bottom: 50px;
+	}
+
+	.section {
+		text-align: center;
+
+		a {
+			display: block;
+			padding: 15px;
+			text-decoration: none;
+			transition: all 0.2s ease-in-out;
+
+			&:hover, &:focus {
+				background: #F9F9F9;
+			}
+		}
+		.fa {
+			margin-bottom: 20px;
+			font-size: 3em;
+			color: $primary;
+		}
+		h2 {
+			font-size: 1.2em;
+			color: #555;
+		}
+	}
+}

@@ -38,6 +38,17 @@ Route::get('player/{username}', ['as' => 'player', 'uses' => 'PlayerController@g
 
 /*
 |--------------------------------------------------------------------------
+| Help & Support
+|--------------------------------------------------------------------------
+*/
+Route::get('support', ['as' => 'support', 'uses' => 'SupportController@get']);
+Route::get('support/kb', ['as' => 'support.knowledge-base', 'uses' => 'SupportController@getKnowledgeBase']);
+Route::get('support/tickets', ['as' => 'support.tickets', 'uses' => 'SupportController@getTickets']);
+Route::get('support/status', ['as' => 'support.status', 'uses' => 'SupportController@getStatus']);
+
+
+/*
+|--------------------------------------------------------------------------
 | Account / Auth
 |--------------------------------------------------------------------------
 */
