@@ -1,7 +1,10 @@
 global.$ = global.jQuery = require('jquery');
 var bootstrap = require('bootstrap');
+var instantclick = require('instantclick');
 
 $(function() {
+
+    instantclick.init();
 
     require('./modules/nav');
     require('./modules/copy-ip');

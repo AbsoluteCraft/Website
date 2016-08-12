@@ -28,21 +28,29 @@
             <a href="players"{{ nav_active($page, 'players') }}>{{ trans('nav.players') }}</a>
             <a href="leaderboards"{{ nav_active($page, 'leaderboards') }}>{{ trans('nav.leaderboards') }}</a>
             <span class="divider"></span>
-            @if(Auth::check())
-                <button type="button" class="btn btn-sm btn-user">
-                    <img src="https://crafatar.com/avatars/{{ Auth::user()->username }}?size=16&overlay&default=371e57a02c0e4875ab952373447b63db" alt="{{ Auth::user()->username }}">
-                </button>
-            @else
+            {{--@else--}}
                 <div class="dropdown">
-                    <a href="{{ route('auth.login') }}" id="dropdown-user" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn btn-user">
-                        <img src="{{ player_avatar('371e57a02c0e4875ab952373447b63db') }}" alt="Guest">
+                    <?php
+                    if(Auth::check()) {
+                        $playeRoute = route('player', ['username' => Auth::user()->username]);
+                    } else {
+                        $playeRoute = route('auth.login');
+                    }
+                    ?>
+                    <a href="{{ $playeRoute }}" id="dropdown-user" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn btn-user">
+                        <img src="{{ player_avatar(Auth::check() ? Auth::user()->uuid : '371e57a02c0e4875ab952373447b63db') }}" alt="{{ Auth::check() ? Auth::user()->username : 'Guest' }}">
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown-user">
-                        <li><a href="{{ route('auth.login') }}">{{ trans('nav.login') }}</a></li>
-                        <li><a href="{{ route('auth.register') }}">{{ trans('nav.register') }}</a></li>
+                        @if(Auth::check())
+                            <li><a href="{{ $playeRoute }}">My Profile</a></li>
+                            <li><a href="dashboard">Dashboard</a></li>
+                        @else
+                            <li><a href="{{ route('auth.login') }}">{{ trans('nav.login') }}</a></li>
+                            <li><a href="{{ route('auth.register') }}">{{ trans('nav.register') }}</a></li>
+                        @endif
                     </ul>
                 </div>
-            @endif
+            {{--@endif--}}
             <button type="button" class="btn btn-sm btn-cart"><span class="fa fa-shopping-cart" aria-hidden="true"></span></button>
         </nav>
     </div>
