@@ -12,9 +12,8 @@ class ComposerServiceProvider extends ServiceProvider {
 	 * @return void
 	 */
 	public function boot() {
-		view()->creator(
-			'partials.header', 'App\Http\ViewComposers\MotdComposer'
-		);
+		view()->creator('partials.header', 'App\Http\ViewComposers\MotdComposer');
+		view()->creator('partials.cart', 'App\Http\ViewComposers\CartComposer');
 	}
 
 	/**

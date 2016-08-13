@@ -1,6 +1,23 @@
+.popover-cart, .popover-cart-content {
+	display: none;
+}
+
 .popover-cart {
 	width: 300px;
 	color: #333;
+
+	.popover-cart-content {
+		display: block;
+	}
+
+	.empty-state {
+		padding: 15px 0;
+		text-align: center;
+
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
 }
 
 .popover-footer {
