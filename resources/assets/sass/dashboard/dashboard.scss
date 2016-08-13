@@ -1,0 +1,64 @@
+@import "../variables";
+@import "../mixins/mixins";
+
+$dashboard-bg: #F5F5F5;
+$header-height: 60px;
+$sidebar-width: 70px;
+$sidebar-width-md: 240px;
+
+body.dashboard {
+	background: $dashboard-bg;
+
+	.container {
+		width: auto;
+	}
+
+	.content {
+		margin-left: $sidebar-width;
+
+		main {
+			background: none;
+			margin-top: $header-height;
+			padding: 20px 5px 15px 5px;
+			color: #505458;
+
+			.page-title {
+				margin-top: 0;
+				margin-bottom: 20px;
+				font-size: 20px;
+				font-weight: 600;
+				line-height: 42px;
+			}
+		}
+	}
+
+	.panel-body {
+		padding: 20px;
+	}
+
+	@include respond-to(md) {
+		.content {
+			margin-left: $sidebar-width-md;
+			transition: margin-left 0.2s ease-in-out;
+		}
+	}
+
+	&.nav-collapse {
+		.content {
+			margin-left: $sidebar-width;
+		}
+	}
+}
+
+.dropdown-menu > li > a {
+	padding: 6px 20px;
+
+	&:hover, &:focus {
+		background: $primary;
+		color: #FFF;
+	}
+}
+
+@import "header";
+@import "sidebar";
+@import "home";

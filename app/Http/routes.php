@@ -64,3 +64,11 @@ Route::get('recover/password', ['as' => 'auth.recover-password', 'uses' => 'Auth
 Route::group(['middleware' => 'auth'], function() {
 
 });
+
+/*
+|--------------------------------------------------------------------------
+| Dashboard
+|--------------------------------------------------------------------------
+*/
+
+Route::get('dashboard', ['as' => 'dashboard.home', 'uses' => 'DashboardController@getHome']);

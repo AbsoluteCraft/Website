@@ -1,0 +1,126 @@
+body.dashboard .sidebar {
+	position: fixed;
+	top: $header-height;
+	bottom: 50px;
+	z-index: 2;
+	width: 70px;
+	height: 100%;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+	background: #2f3E47;
+	transition: width 0.2s ease-in-out;
+
+	.sidebar-inner {
+		height: 100%;
+		overflow-y: auto;
+		padding-top: 30px;
+	}
+
+	ul {
+		li {
+			position: relative;
+
+			&.active a {
+				border-color: $primary;
+				color: #FFF;
+			}
+		}
+
+		a {
+			display: block;
+			margin: 4px 0;
+			padding: 15px 20px;
+			border-right: 4px solid transparent;
+			font-size: 18px;
+			text-align: center;
+			text-decoration: none;
+			color: rgba(#FFF, 0.5);
+			transition: all 0.2s ease-in-out;
+
+			&:hover, &:focus {
+				border-color: rgba(#FFF, 0.2);
+				color: rgba(#FFF, 0.8);
+			}
+
+			.fa {
+				margin-left: 4px;
+				width: auto;
+				line-height: 15px;
+			}
+			.label {
+				position: absolute;
+				top: 7px;
+				left: 37px;
+				padding: 0.15em 0.4em 0.08em;
+				transition: all 0.2s ease-in-out;
+			}
+			p {
+				display: none;
+				margin: 0;
+				font-size: 15px;
+				transition: all 0.2s;
+			}
+		}
+	}
+
+	@include respond-to(md) {
+		width: 240px;
+
+		ul a {
+			padding: 12px 20px;
+			font-size: 15px;
+			text-align: left;
+
+			&:hover, &:focus {
+				border-color: transparent;
+			}
+
+			.fa {
+				width: 1.2857142857em;
+				margin-right: 15px;
+			}
+			.label {
+				position: static;
+				padding: 0.2em 0.6em 0.3em;
+			}
+			p {
+				position: static;
+				display: inline-block;
+			}
+		}
+	}
+}
+
+@include respond-to(md) {
+	body.dashboard.nav-collapse .sidebar {
+		width: 70px;
+
+		ul {
+			a {
+				padding: 15px 20px;
+				font-size: 18px;
+				text-align: center;
+
+				&:hover, &:focus {
+					border-color: rgba(#FFF, 0.2);
+				}
+
+				.fa {
+					margin-left: 4px;
+					margin-right: 0;
+					width: auto;
+					line-height: 15px;
+				}
+				.label {
+					position: absolute;
+					top: 7px;
+					left: 37px;
+					padding: 0.15em 0.4em 0.08em;
+				}
+				p {
+					display: none;
+					margin: 0;
+				}
+			}
+		}
+	}
+}
