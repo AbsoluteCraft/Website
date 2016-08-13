@@ -1,9 +1,13 @@
+.popover-cart, .popover-cart-content {
+	display: none;
+}
+
 .popover-cart {
 	width: 300px;
 	color: #333;
 
-	.popover-content {
-
+	.popover-cart-content {
+		display: block;
 	}
 
 	.empty-state {

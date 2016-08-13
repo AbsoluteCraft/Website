@@ -17,7 +17,7 @@
     @else
         <div class="empty-state">
             <p>Your cart is empty</p>
-            <p><a href="{{ route('shop') }}">Visit the store</a></p>
+            <p><a href="{{ route('shop') }}">Visit the Token Shop</a></p>
         </div>
     @endif
 </div>
