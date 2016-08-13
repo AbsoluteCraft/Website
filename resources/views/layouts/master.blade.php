@@ -28,6 +28,8 @@
     @yield('content')
 
     @include('partials.footer')
+    @include('partials.sticky-status')
+    @include('partials.cart')
 
     <script src="{{ asset('js/script.js') }}"></script>
 </body>

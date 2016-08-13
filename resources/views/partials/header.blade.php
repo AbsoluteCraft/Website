@@ -22,36 +22,27 @@
             <div class="bar"></div>
         </button>
         <nav class="nav">
-            <a href="{{ route('home') }}"{{ nav_active($page, 'home') }}>{{ trans('nav.home') }}</a>
-            <a href="shop"{{ nav_active($page, 'shop') }}>{{ trans('nav.shop') }}</a>
-            <a href="projects"{{ nav_active($page, 'projects') }}>{{ trans('nav.projects') }}</a>
-            <a href="players"{{ nav_active($page, 'players') }}>{{ trans('nav.players') }}</a>
-            <a href="leaderboards"{{ nav_active($page, 'leaderboards') }}>{{ trans('nav.leaderboards') }}</a>
+            <a href="{{ route('home') }}"{!! nav_active($page, 'home') !!}>{{ trans('nav.home') }}</a>
+            <a href="{{ route('shop') }}"{!! nav_active($page, 'shop') !!}>{{ trans('nav.shop') }}</a>
+            <a href="{{ route('projects') }}"{!! nav_active($page, 'projects') !!}>{{ trans('nav.projects') }}</a>
+            <a href="{{ route('players') }}"{!! nav_active($page, 'players') !!}>{{ trans('nav.players') }}</a>
+            <a href="leaderboards"{!! nav_active($page, 'leaderboards') !!}>{{ trans('nav.leaderboards') }}</a>
             <span class="divider"></span>
-            {{--@else--}}
-                <div class="dropdown">
-                    <?php
-                    if(Auth::check()) {
-                        $playeRoute = route('player', ['username' => Auth::user()->username]);
-                    } else {
-                        $playeRoute = route('auth.login');
-                    }
-                    ?>
-                    <a href="{{ $playeRoute }}" id="dropdown-user" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn btn-user">
-                        <img src="{{ player_avatar(Auth::check() ? Auth::user()->uuid : '371e57a02c0e4875ab952373447b63db') }}" alt="{{ Auth::check() ? Auth::user()->username : 'Guest' }}">
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdown-user">
-                        @if(Auth::check())
-                            <li><a href="{{ $playeRoute }}">My Profile</a></li>
-                            <li><a href="dashboard">Dashboard</a></li>
-                        @else
-                            <li><a href="{{ route('auth.login') }}">{{ trans('nav.login') }}</a></li>
-                            <li><a href="{{ route('auth.register') }}">{{ trans('nav.register') }}</a></li>
-                        @endif
-                    </ul>
-                </div>
-            {{--@endif--}}
-            <button type="button" class="btn btn-sm btn-cart"><span class="fa fa-shopping-cart" aria-hidden="true"></span></button>
+            <div class="dropdown">
+                <button type="button" id="dropdown-user" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn btn-user">
+                    <img src="{{ player_avatar(Auth::check() ? Auth::user()->uuid : '371e57a02c0e4875ab952373447b63db') }}" alt="{{ Auth::check() ? Auth::user()->username : 'Guest' }}">
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdown-user">
+                    @if(Auth::check())
+                        <li><a href="{{ route('player', ['username' => Auth::user()->username]) }}">My Profile</a></li>
+                        <li><a href="dashboard">Dashboard</a></li>
+                    @else
+                        <li><a href="{{ route('auth.login') }}">{{ trans('nav.login') }}</a></li>
+                        <li><a href="{{ route('auth.register') }}">{{ trans('nav.register') }}</a></li>
+                    @endif
+                </ul>
+            </div>
+            <button type="button" class="btn btn-sm btn-cart" title="Cart"><span class="fa fa-shopping-cart" aria-hidden="true"></span></button>
         </nav>
     </div>
     @if($page == 'home')

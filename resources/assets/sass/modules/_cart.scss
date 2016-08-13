@@ -1,6 +1,19 @@
 .popover-cart {
 	width: 300px;
 	color: #333;
+
+	.popover-content {
+
+	}
+
+	.empty-state {
+		padding: 15px 0;
+		text-align: center;
+
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
 }
 
 .popover-footer {
