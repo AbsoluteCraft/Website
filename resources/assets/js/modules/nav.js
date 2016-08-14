@@ -19,7 +19,7 @@ var close = function() {
     }, 300);
 };
 
-$menu.addEventListener('click', function() {
+$menu.click(function() {
     if($header.hasClass('nav-open')) {
         close();
     } else {
