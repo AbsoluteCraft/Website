@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\PlayersOnline;
 use App\Repositories\PlayersOnlineRepository;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -22,6 +23,15 @@ class DashboardController extends Controller {
 
 		return view('dashboard.home', [
 			'playersOnline' => $playersOnline
+		]);
+	}
+
+	public function getUsers(Request $request) {
+		$users = User::orderBy($request->get('sort', 'rank'), $request->get('order', 'desc'))
+			->get();
+
+		return view('dashboard.users', [
+			'users' => $users
 		]);
 	}
 

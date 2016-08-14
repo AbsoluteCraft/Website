@@ -7,7 +7,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('dashboard.users') }}">
                     <span class="fa fa-users"></span> <p>Users</p>
                 </a>
             </li>

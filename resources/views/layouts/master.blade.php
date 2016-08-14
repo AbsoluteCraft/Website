@@ -8,7 +8,7 @@
     <title>@if(isset($title)){{ $title . ' | ' . trans('general.name') }}@else{{ trans('general.title') }}@endif</title>
 
     <link rel="stylesheet" href="{{ asset('css/style.css')}}">
-    @include('favicons')
+    @include('partials.favicons')
 </head>
 <body>
     @include('partials.header', ['page' => $page, 'title' => isset($title) ? $title : null])
