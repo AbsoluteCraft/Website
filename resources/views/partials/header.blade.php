@@ -29,10 +29,10 @@
             <a href="leaderboards"{!! nav_active($page, 'leaderboards') !!}>{{ trans('nav.leaderboards') }}</a>
             <span class="divider"></span>
             <div class="dropdown">
-                <button type="button" id="dropdown-user" data-target="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn btn-user">
+                <button type="button" id="dropdown-user" data-target="dropdown-user-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn btn-user">
                     <img src="{{ player_avatar(Auth::check() ? Auth::user()->uuid : '371e57a02c0e4875ab952373447b63db') }}" alt="{{ Auth::check() ? Auth::user()->username : 'Guest' }}">
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdown-user">
+                <ul class="dropdown-menu" aria-labelledby="dropdown-user" id="dropdown-user-menu">
                     @if(Auth::check())
                         <li><a href="{{ route('player', ['username' => Auth::user()->username]) }}">My Profile</a></li>
                         <li><a href="dashboard">Dashboard</a></li>
