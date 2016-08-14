@@ -1,19 +1,13 @@
 global.$ = global.jQuery = require('jquery');
 var bootstrap = require('bootstrap');
-var instantclick = require('instantclick');
 
 $(function() {
-
-    instantclick.init();
-
-    require('./modules/nav');
-    require('./modules/copy-ip');
-    require('./modules/cart');
+    require('./sidebar');
 
     // Load the relevant page script
     var pageLoader = {
         pages: {
-            player: require('./pages/player')
+            'dashboard-home': require('./home')
         },
         init: function() {
             for(var p in pageLoader.pages) {

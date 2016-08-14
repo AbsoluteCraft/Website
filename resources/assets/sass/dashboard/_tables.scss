@@ -1,0 +1,21 @@
+body.dashboard {
+	.table {
+		td {
+			vertical-align: middle;
+		}
+		thead td {
+			font-weight: bold;
+		}
+		td.filter {
+			position: relative;
+			width: 110px;
+
+			input {
+				position: absolute;
+				top: 3px;
+				width: 100px;
+				font-weight: normal;
+			}
+		}
+	}
+}

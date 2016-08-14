@@ -1,26 +1,26 @@
-var header = document.querySelector('.header');
-var menu = document.querySelector('.menu');
+var $header = $('.header');
+var $menu = $('.menu');
 
 var open = function() {
-    menu.classList.add('active');
-    header.classList.add('nav-open');
+    $menu.addClass('active');
+    $header.addClass('nav-open');
 
     window.setTimeout(function() {
-        header.classList.add('nav-show');
+        $header.addClass('nav-show');
     }, 300);
 };
 
 var close = function() {
-    header.classList.remove('nav-show');
+    $header.removeClass('nav-show');
 
     window.setTimeout(function() {
-        header.classList.remove('nav-open');
-        menu.classList.remove('active');
+        $header.removeClass('nav-open');
+        $menu.removeClass('active');
     }, 300);
 };
 
-menu.addEventListener('click', function() {
-    if(header.classList.contains('nav-open')) {
+$menu.addEventListener('click', function() {
+    if($header.hasClass('nav-open')) {
         close();
     } else {
         open();
