@@ -13,8 +13,10 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix.sass('app.scss', 'public/css/style.css');
+    mix.sass('dashboard/dashboard.scss', 'public/css/dashboard.css');
 
     mix.browserify('app.js', 'public/js/script.js');
+    mix.browserify('dashboard/dashboard.js', 'public/js/dashboard.js');
 
     mix.browserSync({
         proxy: 'local.ac',
