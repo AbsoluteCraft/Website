@@ -36,7 +36,7 @@ class CreateUsersTable extends Migration
 			$table->string('planetminecraft', 20);
 			$table->string('youtube', 20);
 
-			$table->integer('profile_background_id')->unsigned();
+			$table->integer('profile_background_id')->unsigned()->nullable();
 
             $table->timestamps();
 			$table->foreign('profile_background_id')->references('id')->on('profile_backgrounds');
