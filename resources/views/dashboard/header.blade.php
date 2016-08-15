@@ -36,7 +36,7 @@
 
                 <li class="dropdown user-box">
                     <a href="" class="dropdown-toggle avatar" data-toggle="dropdown" aria-expanded="true">
-                        <img src="{{ player_avatar(Auth::user()->username) }}" alt="{{ Auth::user()->username }}">
+                        <img src="{{ player_avatar(Auth::user()->uuid) }}" alt="{{ Auth::user()->username }}">
                     </a>
 
                     <ul class="dropdown-menu">
