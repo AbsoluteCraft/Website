@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\PlayersOnline;
+use App\Models\PlayersOnline;
 use Carbon\Carbon;
 
 class PlayersOnlineRepository {

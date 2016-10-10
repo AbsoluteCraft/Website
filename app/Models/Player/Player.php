@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Player;
+namespace App\Models\Player;
 
-use App\Economy\Account;
+use App\Models\Economy\Account;
 use App\Libs\DynmapGrid;
-use App\User;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Player extends Model {

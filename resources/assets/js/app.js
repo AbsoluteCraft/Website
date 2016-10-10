@@ -9,6 +9,7 @@ $(function() {
     require('./modules/nav');
     require('./modules/copy-ip');
     require('./modules/cart');
+    require('./modules/sticky-help');
 
     // Load the relevant page script
     var pageLoader = {

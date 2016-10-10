@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Repositories\MojangRepository;
-use App\User;
+use App\Libs\MojangAPI;
+use App\Models\Player\Player;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -15,8 +15,6 @@ class AuthController extends Controller {
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-    private $mojangRepository;
-
     /**
      * Where to redirect users after login / registration.
      *
@@ -24,9 +22,7 @@ class AuthController extends Controller {
      */
     protected $redirectTo = '/';
 
-    public function __construct(MojangRepository $mojangRepository) {
-        $this->mojangRepository = $mojangRepository;
-
+    public function __construct() {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
@@ -40,17 +36,24 @@ class AuthController extends Controller {
             'dob' => 'required|date'
         ]);
 
-        $player = $this->mojangRepository->getUserInfo($request->get('username'));
-
-        if(!$player) {
+		$mojangPlayer = MojangAPI::getProfile($request->get('username'));
+        if($mojangPlayer == false) {
             return redirect()->back()
-                ->withErrors(['username' => 'This username does not exist'])
+                ->withErrors(['username' => 'This username is not registered with Mojang. Please use your Minecraft username.'])
                 ->withInput();
         }
 
+        $player = Player::where('uuid', $mojangPlayer['id'])->first();
+		if(!$player) {
+			Player::create([
+				'uuid' => $mojangPlayer['id'],
+				'username' => $request->get('username')
+			]);
+		}
+
         $user = User::create([
             'username' => $request->get('username'),
-            'uuid' => $player->id,
+            'uuid' => $mojangPlayer['id'],
             'email' => $request->get('email'),
             'password' => bcrypt($request->get('password')),
             'location' => $request->get('location'),

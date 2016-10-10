@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Player\Player;
+use App\Models\Player\Player;
 
 class LeaderboardRepository {
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use App\Player\Background;
+use App\Models\Player\Background;
 use Golonka\BBCode\BBCodeParser;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -14,7 +14,7 @@ class User extends Authenticatable {
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'dob', 
+        'username', 'email', 'password', 'dob', 'uuid', 'location', 'dob',
     ];
 
     /**

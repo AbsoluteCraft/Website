@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Economy;
+namespace App\Models\Economy;
 
 use Illuminate\Database\Eloquent\Model;
 
