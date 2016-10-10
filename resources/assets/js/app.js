@@ -14,7 +14,8 @@ $(function() {
     // Load the relevant page script
     var pageLoader = {
         pages: {
-            player: require('./pages/player')
+            player: require('./pages/player'),
+            status: require('./pages/status')
         },
         init: function() {
             for(var p in pageLoader.pages) {

@@ -14,10 +14,14 @@
     <main class="status">
         <div class="container">
             <ul class="servers">
-                <li>Lobby <span class="label label-success">Online</span></li>
-                <li>Creative <span class="label label-success">Online</span></li>
-                <li>Survival <span class="label label-success">Online</span></li>
-                <li>Games <span class="label label-muted">Maintenance</span></li>
+                @foreach($servers as $name => $server)
+                    <li>
+                        {{ $name . ' ' }}
+                        <span class="label {{ $server['online'] ? 'label-success' : 'label-danger' }}">
+                            {{ $server['online'] ? 'Online' : 'Offline' }}
+                        </span>
+                    </li>
+                @endforeach
             </ul>
         </div>
     </main>
