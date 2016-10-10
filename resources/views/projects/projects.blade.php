@@ -12,7 +12,7 @@
             <div class="wrapper">
                 @foreach ($projects as $project)
                     <figure class="project">
-                        <img src="{{ asset('uploads/projects/' . $project->image) }}">
+                        <img src="{{ upload('projects/' . $project->image) }}">
                         <figcaption>
                             <h2 class="two-line">{{ $project->title }}</h2>
                             <p>{{ $project->description }}</p>

@@ -7,14 +7,48 @@ main.shop {
 		border: 1px solid #EFEFEF;
 		border-radius: 4px;
 
-		svg {
+		img {
 			margin-right: 30px;
 			float: left;
 		}
 		p {
 			padding-top: 20px;
 		}
+
+		.tokens {
+			padding-top: 18px;
+			font-size: 32px;
+
+			small {
+				position: relative;
+				top: -1px;
+				font-weight: normal;
+				color: #AAA;
+			}
+		}
 	}
 
+	.item {
+		button {
+			border: none;
+			outline: none;
+			background: none;
+		}
+	}
 
+	.modal {
+		img {
+			width: 100%;
+		}
+
+		p {
+			line-height: 1.6em;
+		}
+
+		.price {
+			float: left;
+			font-size: 16px;
+			font-weight: bold;
+		}
+	}
 }

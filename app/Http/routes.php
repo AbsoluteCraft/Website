@@ -4,11 +4,13 @@ include('api.php');
 
 /*
 |--------------------------------------------------------------------------
-| Homepage
+| Homepage / General
 |--------------------------------------------------------------------------
 */
 
 Route::get('/', ['as' => 'home', 'uses' => 'HomeController@get']);
+Route::get('tos', ['as' => 'terms', 'uses' => 'HomeController@getTerms']);
+Route::get('privacy', ['as' => 'privacy', 'uses' => 'HomeController@getPrivacy']);
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,12 @@ Route::get('status', ['as' => 'status', 'uses' => 'StatusController@get']);
 */
 
 Route::get('shop', ['as' => 'shop', 'uses' => 'ShopController@get']);
+Route::get('donate', function() { return redirect()->route('shop'); });
+
+Route::post('shop/buy', ['as' => 'shop.buy', 'uses' => 'ShopController@buy']);
+
+Route::post('shop/donate', ['as' => 'shop.donate', 'uses' => 'ShopController@donate']);
+Route::post('shop/paypal/ipn', ['as' => 'shop.paypal.ipn', 'uses' => 'PayPalController@ipn']);
 
 /*
 |--------------------------------------------------------------------------

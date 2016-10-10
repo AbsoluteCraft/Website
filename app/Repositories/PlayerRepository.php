@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Player\LastSeen;
 use App\Models\Player\Player;
+use App\Models\User;
 
 class PlayerRepository {
 
@@ -19,9 +20,27 @@ class PlayerRepository {
 			->first();
 	}
 
+	/**
+	 * Find a player by username
+	 *
+	 * @param $username
+	 *
+	 * @return Player
+	 */
 	public function getByUsername($username) {
 		return Player::where('username', $username)
 			->first();
+	}
+
+	/**
+	 * Find a player from a User's UUID
+	 *
+	 * @param User $user
+	 *
+	 * @return Player
+	 */
+	public function getFromUser(User $user) {
+		return $this->getByUUID($user->uuid);
 	}
 
 

@@ -12,8 +12,8 @@
             </nav>
             <nav class="nav col-sm-2">
                 <h2>Legal</h2>
-                <a href="terms">{{ trans('nav.terms') }}</a>
-                <a href="privacy">{{ trans('nav.privacy') }}</a>
+                <a href="{{ route('terms') }}">{{ trans('nav.terms') }}</a>
+                <a href="{{ route('privacy') }}">{{ trans('nav.privacy') }}</a>
             </nav>
             <form class="form-inline col-sm-6">
                 <h2>{{ trans('nav.newsletter') }}</h2>

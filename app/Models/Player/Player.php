@@ -15,7 +15,7 @@ class Player extends Model {
 	 * @var array
 	 */
 	protected $fillable = [
-		'uuid', 'username',
+		'uuid', 'username', 'tokens'
 	];
 
 	public function user() {
@@ -28,6 +28,10 @@ class Player extends Model {
 
 	public function economy() {
 		return $this->belongsTo(Account::class, 'uuid', 'uuid');
+	}
+
+	public function gameconfig() {
+		return $this->hasMany(GameConfig::class);
 	}
 
 	public function scopeNotStaff($query) {

@@ -8,4 +8,12 @@ class HomeController extends Controller {
         return view('home');
     }
 
+    public function getTerms() {
+    	return view('legal.terms');
+	}
+
+	public function getPrivacy() {
+		return view('legal.privacy');
+	}
+
 }
