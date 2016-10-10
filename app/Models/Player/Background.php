@@ -1,16 +1,16 @@
 <?php
 
-namespace App;
+namespace App\Models\Player;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PlayersOnline extends Model {
+class Background extends Model {
 
 	/**
 	 * The table associated with the model.
 	 *
 	 * @var string
 	 */
-	public $table = 'players_online';
+	public $table = 'profile_backgrounds';
 
 }

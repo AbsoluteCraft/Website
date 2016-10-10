@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Player\Player;
+use App\Models\Player\Player;
 use App\Repositories\PlayerRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;

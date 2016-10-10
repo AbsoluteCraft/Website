@@ -2,7 +2,7 @@
 
 namespace App\Http\ViewComposers;
 
-use App\Motd;
+use App\Models\Motd;
 
 class MotdComposer {
 

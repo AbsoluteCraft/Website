@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Player;
+namespace App\Models\Economy;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Background extends Model {
+class Balance extends Model {
 
 	/**
 	 * The table associated with the model.
 	 *
 	 * @var string
 	 */
-	public $table = 'profile_backgrounds';
+	public $table = 'cc3_balance';
 
 }

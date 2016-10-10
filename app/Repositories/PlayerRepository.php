@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\Player\LastSeen;
-use App\Player\Player;
+use App\Models\Player\LastSeen;
+use App\Models\Player\Player;
 
 class PlayerRepository {
 

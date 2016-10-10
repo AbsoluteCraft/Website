@@ -12,6 +12,14 @@ Route::get('/', ['as' => 'home', 'uses' => 'HomeController@get']);
 
 /*
 |--------------------------------------------------------------------------
+| Status page
+|--------------------------------------------------------------------------
+*/
+
+Route::get('status', ['as' => 'status', 'uses' => 'StatusController@get']);
+
+/*
+|--------------------------------------------------------------------------
 | Token Shop
 |--------------------------------------------------------------------------
 */
@@ -36,16 +44,6 @@ Route::get('players', ['as' => 'players', 'uses' => 'PlayerController@getAll']);
 Route::get('player', ['as' => 'player.search', 'uses' => 'PlayerController@search']);
 Route::get('player/{username}', ['as' => 'player', 'uses' => 'PlayerController@get']);
 
-/*
-|--------------------------------------------------------------------------
-| Help & Support
-|--------------------------------------------------------------------------
-*/
-Route::get('support', ['as' => 'support', 'uses' => 'SupportController@get']);
-Route::get('support/kb', ['as' => 'support.knowledge-base', 'uses' => 'SupportController@getKnowledgeBase']);
-Route::get('support/tickets', ['as' => 'support.tickets', 'uses' => 'SupportController@getTickets']);
-Route::get('support/status', ['as' => 'support.status', 'uses' => 'SupportController@getStatus']);
-
 
 /*
 |--------------------------------------------------------------------------
@@ -61,13 +59,13 @@ Route::post('register', ['as' => 'auth.register-post', 'uses' => 'Auth\AuthContr
 
 Route::get('recover/password', ['as' => 'auth.recover-password', 'uses' => 'Auth\PasswordController@getReset']);
 
-Route::group(['middleware' => 'auth'], function() {
+/*
+|--------------------------------------------------------------------------
+| Dashboard
+|--------------------------------------------------------------------------
+*/
 
-	/*
-	|--------------------------------------------------------------------------
-	| Dashboard
-	|--------------------------------------------------------------------------
-	*/
+Route::group(['middleware' => 'auth'], function() {
 
 	Route::get('dashboard', ['as' => 'dashboard.home', 'uses' => 'DashboardController@getHome']);
 	Route::get('dashboard/users', ['as' => 'dashboard.users', 'uses' => 'DashboardController@getUsers']);

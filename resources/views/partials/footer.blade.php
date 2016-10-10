@@ -6,9 +6,9 @@
             </div>
             <nav class="nav col-sm-2">
                 <h2>{{ trans('nav.help_support') }}</h2>
-                <a href="support">{{ trans('nav.support') }}</a>
-                <a href="rules">{{ trans('nav.rules') }}</a>
-                <a href="status">{{ trans('nav.status') }}</a>
+                <a href="#" data-sh-module="kb" style="border:none;cursor:inherit">{{ trans('nav.support') }}</a>
+                <a href="#" data-sh-group="kb" data-sh-page="kb-rules" style="border:none;cursor:inherit">{{ trans('nav.rules') }}</a>
+                <a href="#" data-sh-module="status" style="border:none;cursor:inherit">{{ trans('nav.status') }}</a>
             </nav>
             <nav class="nav col-sm-2">
                 <h2>Legal</h2>

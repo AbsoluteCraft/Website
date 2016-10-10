@@ -12,17 +12,15 @@
             <div class="row">
                 <div class="item col-md-6 col-lg-4">
                     <button type="button" data-toggle="modal" data-target="#adapt-super-fish">
-                        Adapt - Super Fish
+                        <h4 class="name">Adapt - Super Fish</h4>
+                        <p class="price">500</p>
                     </button>
-                    <h4 class="name">Adapt - Super Fish</h4>
-                    <p class="price">500</p>
                 </div>
                 <div class="item col-md-6 col-lg-4">
                     <button data-toggle="modal" data-target="#vip-rank">
-                        VIP rank
+                        <h4 class="name">VIP rank</h4>
+                        <p class="price">£5.00</p>
                     </button>
-                    <h4 class="name">VIP rank</h4>
-                    <p class="price">£5.00</p>
                 </div>
             </div>
         </div>

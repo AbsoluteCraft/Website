@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Economy;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Balance extends Model {
+class PlayersOnline extends Model {
 
 	/**
 	 * The table associated with the model.
 	 *
 	 * @var string
 	 */
-	public $table = 'cc3_balance';
+	public $table = 'players_online';
 
 }
