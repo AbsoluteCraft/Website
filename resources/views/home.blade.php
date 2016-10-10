@@ -44,7 +44,7 @@
                     <div class="col-sm-8">
                         <h1>{{ trans('home.apply.title') }}</h1>
                         <p>{!! trans('home.apply.content') !!}</p>
-                        <a href="{{ trans('home.discord.code') }}" class="btn btn-success">{{ trans('home.discord.apply') }}</a>
+                        <a href="{{ trans('home.discord.code') }}" target="_blank" class="btn btn-success">{{ trans('home.discord.apply') }}</a>
                     </div>
                     <div class="col-sm-4">
                         <img src="{{ asset('assets/apartments.png') }}" alt="Apartments Render" class="img-responsive">
