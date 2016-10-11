@@ -57,21 +57,20 @@ class PlayerController extends Controller {
 		$staff = User::staff()->get();
 
 		$groupedStaff = [
-			'operators' => [],
-			'moderators' => [],
-			'builders' => []
+			'operator' => [],
+			'moderator' => [],
+			'builder' => []
 		];
 		foreach($staff as $user) {
 			$rank = $user->rank->name;
 
-			$groupedStaff[$rank][] = $user;
-
 			// Group together the sub ranks
 			if(str_contains($rank, 'builder')) {
-				$groupedStaff['builders'][] = $user;
-			}
-			if(str_contains($rank, 'moderator')) {
-				$groupedStaff['moderators'][] = $user;
+				$groupedStaff['builder'][] = $user;
+			} else if(str_contains($rank, 'moderator')) {
+				$groupedStaff['moderator'][] = $user;
+			} else {
+				$groupedStaff[$rank][] = $user;
 			}
 		}
 

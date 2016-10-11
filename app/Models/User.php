@@ -39,10 +39,10 @@ class User extends Authenticatable {
 	 */
 	public function scopeStaff($query) {
 		$ranks = config('ranks');
-		$minStaffRank = 10;
+		$minStaffRank = null;
 
 		foreach($ranks as $num => $rank) {
-			if($rank['staff'] == true) {
+			if($rank['staff'] == true && ($minStaffRank == null || $minStaffRank > $num)) {
 				$minStaffRank = $num;
 			}
 		}

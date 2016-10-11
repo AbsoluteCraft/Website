@@ -114,8 +114,8 @@ class ShopController extends Controller {
 			'currency_code' => 'GBP',
 			'lc' => 'GB',
 			'cbt' => 'Return to AbsoluteCraft',
-			'notify_url' => 'https://absolutecraft.co.uk/paypal/ipn', // TODO: Make these routes
-			'return' => 'https://absolutecraft.co.uk/shop/donate/complete',
+			'notify_url' => route('shop.paypal.ipn'),
+			'return' => 'https://absolutecraft.co.uk/shop/donate/complete', // TODO: Make these routes
 			'cancel_return' => 'https://absolutecraft.co.uk/shop/donate/cancelled'
 		);
 

@@ -20,8 +20,8 @@
         <div class="container">
             <div class="row players">
                 <div class="col-md-4">
-                    <h2 class="title">Operators</h2>
                     @if(isset($staff['operator']) && count($staff['operator']))
+                        <h2 class="title">Operators</h2>
                         <section class="operators">
                             @foreach($staff['operator'] as $player)
                                 <a href="{{ route('player', ['name' => $player->username]) }}">
@@ -30,20 +30,20 @@
                             @endforeach
                         </section>
                     @endif
-                    @if(count($staff['moderators']))
+                    @if(count($staff['moderator']))
                         <h2 class="title">Moderators</h2>
                         <section class="moderators">
-                            @foreach($staff['moderators'] as $player)
+                            @foreach($staff['moderator'] as $player)
                                 <a href="{{ route('player', ['name' => $player->username]) }}">
                                     <img src="https://crafatar.com/avatars/{{ $player->username }}?size=24&amp;default=https%3A%2F%2Fcrafatar.com%2Favatars%2FTeamAbsolute%3Fsize%3D24" width="24" alt="{{ $player->username }}" data-toggle="tooltip" title="{{ $player->username }}">
                                 </a>
                             @endforeach
                         </section>
                     @endif
-                    @if(count($staff['builders']))
+                    @if(count($staff['builder']))
                         <h2 class="title">Builders</h2>
-                        <section class="moderators">
-                            @foreach($staff['builders'] as $player)
+                        <section class="builders">
+                            @foreach($staff['builder'] as $player)
                                 <a href="{{ route('player', ['name' => $player->username]) }}">
                                     <img src="https://crafatar.com/avatars/{{ $player->username }}?size=24&amp;default=https%3A%2F%2Fcrafatar.com%2Favatars%2FTeamAbsolute%3Fsize%3D24" width="24" alt="{{ $player->username }}" data-toggle="tooltip" title="{{ $player->username }}">
                                 </a>

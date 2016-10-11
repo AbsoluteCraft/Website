@@ -98,7 +98,7 @@
                 </div>
             </div>
             <div class="stats">
-                <h3>Gamemodes</h3>
+                <h3>Gamemodes</h3><?php // TODO: Dynamic from games table ?>
                 <div class="row">
                     <div class="col-md-6 col-lg-4">
                         <div class="thumbnail">
