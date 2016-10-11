@@ -3,7 +3,7 @@
 namespace App\Libs\ShopScripts;
 
 use App\Models\Game\Game;
-use App\Models\Player\GameConfig;
+use App\Models\Player\PlayerGame;
 use App\Models\Player\Player;
 use App\Models\Shop\Order;
 use App\Models\User;
@@ -27,7 +27,7 @@ class AdaptSuperFish implements ShopScript {
 
 		$config = $player->gameconfig->where('game_id', $game->id)->first();
 		if(!$config) {
-			$config = new GameConfig([
+			$config = new PlayerGame([
 				'player_id' => $player->id,
 				'game_id' => $game->id,
 				'config' => null

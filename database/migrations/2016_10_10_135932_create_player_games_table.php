@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePlayersGameConfigTable extends Migration
+class CreatePlayerGamesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,9 +12,11 @@ class CreatePlayersGameConfigTable extends Migration
      */
     public function up()
     {
-		Schema::create('player_game_config', function (Blueprint $table) {
+		Schema::create('player_games', function (Blueprint $table) {
+			$table->increments('id');
 			$table->integer('player_id')->unsigned();
 			$table->integer('game_id')->unsigned();
+			$table->integer('points')->default(0);
 			$table->text('config');
 			$table->timestamps();
 

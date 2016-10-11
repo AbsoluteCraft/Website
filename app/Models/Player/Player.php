@@ -4,6 +4,7 @@ namespace App\Models\Player;
 
 use App\Models\Economy\Account;
 use App\Libs\DynmapGrid;
+use App\Models\Game\Game;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -30,8 +31,8 @@ class Player extends Model {
 		return $this->belongsTo(Account::class, 'uuid', 'uuid');
 	}
 
-	public function gameconfig() {
-		return $this->hasMany(GameConfig::class);
+	public function games() {
+		return $this->hasMany(PlayerGame::class);
 	}
 
 	public function scopeNotStaff($query) {

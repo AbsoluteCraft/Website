@@ -52,6 +52,13 @@ Route::get('players', ['as' => 'players', 'uses' => 'PlayerController@getAll']);
 Route::get('player', ['as' => 'player.search', 'uses' => 'PlayerController@search']);
 Route::get('player/{username}', ['as' => 'player', 'uses' => 'PlayerController@get']);
 
+/*
+|--------------------------------------------------------------------------
+| Leaderboard
+|--------------------------------------------------------------------------
+*/
+
+Route::get('leaderboards', ['as' => 'leaderboards', 'uses' => 'LeaderboardController@get']);
 
 /*
 |--------------------------------------------------------------------------

@@ -26,7 +26,7 @@
             <a href="{{ route('shop') }}"{!! nav_active($page, 'shop') !!}>{{ trans('nav.shop') }}</a>
             <a href="{{ route('projects') }}"{!! nav_active($page, 'projects') !!}>{{ trans('nav.projects') }}</a>
             <a href="{{ route('players') }}"{!! nav_active($page, 'players') !!}>{{ trans('nav.players') }}</a>
-            <a href="/leaderboards"{!! nav_active($page, 'leaderboards') !!}>{{ trans('nav.leaderboards') }}</a>
+            <a href="{{ route('leaderboards') }}"{!! nav_active($page, 'leaderboards') !!}>{{ trans('nav.leaderboards') }}</a>
             <span class="divider"></span>
             <div class="dropdown">
                 <button type="button" id="dropdown-user" data-target="dropdown-user-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="btn btn-user">
