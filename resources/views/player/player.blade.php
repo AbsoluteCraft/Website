@@ -55,11 +55,20 @@
             <div class="row">
                 <div class="bio col-md-6">
                     <h3>Bio</h3>
+                    <span class="hide" id="update_route">{{ route('profile.update') }}</span>
+                    <span class="hide" id="csrf">{{ csrf_token() }}</span>
                     <div class="well">
-                        @if($player->user && $player->user->bio != null)
-                            {!! nl2br($player->user->bio) !!}
-                        @else
-                            This player has not set their bio.
+                        <span id="bio-text">
+@if($player->user && $player->user->bio != null)
+{!! nl2br($player->user->bio) !!}
+@elseif(Auth::check())
+You have not made a bio! Click edit to create one:
+@else
+This player has not set their bio.
+@endif
+                        </span>
+                        @if(Auth::check() && $player->user->id == Auth::user()->id)
+                            <button type="button" class="btn pull-right" id="btn-edit-profile"><span class="fa fa-pencil"></span></button>
                         @endif
                     </div>
                 </div>
@@ -98,17 +107,19 @@
                 </div>
             </div>
             <div class="stats">
-                <h3>Gamemodes</h3><?php // TODO: Dynamic from games table ?>
+                <h3>Games</h3>
                 <div class="row">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="thumbnail">
-                            <img src="{{ asset('img/rpg-aerial.jpg') }}" alt="AbsoluteRPG">
-                            <div class="caption">
-                                <h4>AbsoluteRPG</h4>
-                                <p>300 points</p>
+                    @foreach($player->games as $playerGame)
+                        <div class="col-md-6 col-lg-4">
+                            <div class="thumbnail">
+                                <img src="{{ upload('games/' . $playerGame->game->name . '.jpg') }}" alt="{{ $playerGame->game->nice_name }}">
+                                <div class="caption">
+                                    <h4>{{ $playerGame->game->nice_name }}</h4>
+                                    <p>{{ $playerGame->points }} points</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

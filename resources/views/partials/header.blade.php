@@ -35,7 +35,12 @@
                 <ul class="dropdown-menu" aria-labelledby="dropdown-user" id="dropdown-user-menu">
                     @if(Auth::check())
                         <li><a href="{{ route('player', ['username' => Auth::user()->username]) }}">My Profile</a></li>
-                        <li><a href="dashboard">Dashboard</a></li>
+                        <li><a href="{{ route('dashboard.home') }}">Dashboard</a></li>
+                        <li role="separator" class="divider"></li>
+                        <form action="{{ route('auth.logout') }}" method="post">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <li><button type="submit">Logout</button></li>
+                        </form>
                     @else
                         <li><a href="{{ route('auth.login') }}">{{ trans('nav.login') }}</a></li>
                         <li><a href="{{ route('auth.register') }}">{{ trans('nav.register') }}</a></li>

@@ -69,10 +69,14 @@ Route::get('leaderboards', ['as' => 'leaderboards', 'uses' => 'LeaderboardContro
 Route::get('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@getLogin']);
 Route::post('login', ['as' => 'auth.login-post', 'uses' => 'Auth\AuthController@postLogin']);
 
+Route::post('logout', ['as' => 'auth.logout', 'uses' => 'Auth\AuthController@logout']);
+
 Route::get('register', ['as' => 'auth.register', 'uses' => 'Auth\AuthController@getRegister']);
 Route::post('register', ['as' => 'auth.register-post', 'uses' => 'Auth\AuthController@postRegister']);
 
 Route::get('recover/password', ['as' => 'auth.recover-password', 'uses' => 'Auth\PasswordController@getReset']);
+
+Route::post('profile', ['as' => 'profile.update', 'uses' => 'Auth\ProfileController@update']);
 
 /*
 |--------------------------------------------------------------------------

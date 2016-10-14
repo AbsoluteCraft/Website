@@ -112,5 +112,23 @@ main.player {
 
 	.bio {
 		margin-top: 10px;
+
+		.btn {
+			position: absolute;
+			top: 52px;
+			right: 35px;
+			background: none;
+			color: #666;
+		}
+		.form-control {
+			display: inline-block;
+			width: 88%;
+			background: #FFF;
+			color: #000;
+			resize: vertical;
+		}
+		.fa-check {
+			color: $success;
+		}
 	}
 }

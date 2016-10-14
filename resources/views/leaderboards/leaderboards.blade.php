@@ -7,7 +7,7 @@
                 @foreach($games as $game)
                     <div class="col-md-6 col-lg-4">
                         <div class="game thumbnail">
-                            <img src="{{ assets('game/' . $game->name . '.jpg') }}" alt="{{ $game->nice_name }}">
+                            <img src="{{ upload('games/' . $game->name . '.jpg') }}" alt="{{ $game->nice_name }}">
                             <div class="caption">
                                 <table class="table table-striped">
                                     <thead>
@@ -20,7 +20,7 @@
                                         @if($game->leaderboard->count() > 0)
                                             @foreach($game->leaderboard as $playerGame)
                                                 <tr>
-                                                    <td>{{ $playerGame->player->username }}</td>
+                                                    <td><a href="{{ route('player', ['username' => $playerGame->player->username]) }}">{{ $playerGame->player->username }}</a></td>
                                                     <td class="text-right">{{ $playerGame->points }}</td>
                                                 </tr>
                                             @endforeach

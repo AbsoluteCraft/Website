@@ -65,4 +65,10 @@ class AuthController extends Controller {
         return redirect($this->redirectPath());
     }
 
+    public function logout() {
+    	Auth::logout();
+
+		return redirect()->route('home');
+	}
+
 }

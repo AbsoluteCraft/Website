@@ -15,12 +15,15 @@
                 <a href="{{ route('terms') }}">{{ trans('nav.terms') }}</a>
                 <a href="{{ route('privacy') }}">{{ trans('nav.privacy') }}</a>
             </nav>
-            <form class="form-inline col-sm-6">
+            <form class="form-inline col-sm-6 validate" action="//absolutecraft.us10.list-manage.com/subscribe/post?u=bc99df9c74d3261fdc46864d9&amp;id=220613f72e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
                 <h2>{{ trans('nav.newsletter') }}</h2>
-                <div class="form-group">
-                    <input type="email" name="email" class="form-control" placeholder="Email">
+                <div id="mc_embed_signup">
+                    <div class="form-group">
+                        <input type="email" name="EMAIL" class="form-control required email" id="mce-EMAIL" placeholder="Email">
+                    </div>
+                    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary btn-join">
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_bc99df9c74d3261fdc46864d9_220613f72e" tabindex="-1" value=""></div>
                 </div>
-                <button type="submit" class="btn btn-primary btn-join">Join</button>
             </form>
         </div>
     </div>
