@@ -1,7 +1,5 @@
 <?php
 
-include('api.php');
-
 /*
 |--------------------------------------------------------------------------
 | Homepage / General
@@ -66,27 +64,19 @@ Route::get('leaderboards', ['as' => 'leaderboards', 'uses' => 'LeaderboardContro
 |--------------------------------------------------------------------------
 */
 
-Route::get('login', ['as' => 'auth.login', 'uses' => 'Auth\AuthController@getLogin']);
-Route::post('login', ['as' => 'auth.login-post', 'uses' => 'Auth\AuthController@postLogin']);
+Route::group(['namespace' => 'Auth'], function() {
+	Route::get('login', ['as' => 'auth.login', 'uses' => 'AuthController@getLogin']);
+	Route::post('login', ['as' => 'auth.login-post', 'uses' => 'AuthController@postLogin']);
 
-Route::post('logout', ['as' => 'auth.logout', 'uses' => 'Auth\AuthController@logout']);
+	Route::post('logout', ['as' => 'auth.logout', 'uses' => 'AuthController@logout']);
 
-Route::get('register', ['as' => 'auth.register', 'uses' => 'Auth\AuthController@getRegister']);
-Route::post('register', ['as' => 'auth.register-post', 'uses' => 'Auth\AuthController@postRegister']);
+	Route::get('register', ['as' => 'auth.register', 'uses' => 'AuthController@getRegister']);
+	Route::post('register', ['as' => 'auth.register-post', 'uses' => 'AuthController@postRegister']);
 
-Route::get('recover/password', ['as' => 'auth.recover-password', 'uses' => 'Auth\PasswordController@getReset']);
+	Route::get('recover/password', ['as' => 'auth.recover-password', 'uses' => 'PasswordController@getReset']);
 
-Route::post('profile', ['as' => 'profile.update', 'uses' => 'Auth\ProfileController@update']);
-
-/*
-|--------------------------------------------------------------------------
-| Dashboard
-|--------------------------------------------------------------------------
-*/
-
-Route::group(['middleware' => 'auth'], function() {
-
-	Route::get('dashboard', ['as' => 'dashboard.home', 'uses' => 'DashboardController@getHome']);
-	Route::get('dashboard/users', ['as' => 'dashboard.users', 'uses' => 'DashboardController@getUsers']);
-
+	Route::post('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 });
+
+include('api.php');
+include('dashboard.php');

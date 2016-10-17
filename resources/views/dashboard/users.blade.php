@@ -1,7 +1,7 @@
 @extends('layouts.dashboard', ['page' => 'users', 'title' => 'Users'])
 
 @section('content')
-    <main class="dashboard-home">
+    <main class="dashboard-users">
         <div class="container">
             <h2 class="page-title">Users</h2>
             <table class="table table-striped">
@@ -26,12 +26,10 @@
                             <td class="text-center">
                                 <div class="btn-group">
                                     @if(Auth::user()->rank->id > $user->rank->id || Auth::user()->rank->name == 'operator')
-                                        <a href="#" class="btn btn-default">Edit</a>
-                                        <a href="#" class="btn btn-success">Promote</a>
+                                        <a href="{{ route('dashboard.users.get', ['id' => $user->id]) }}" class="btn btn-default">Edit</a>
                                         <a href="#" class="btn btn-info">Tokens</a>
                                     @else
                                         <button disabled class="btn btn-default">Edit</button>
-                                        <button disabled class="btn btn-success">Promote</button>
                                         <button disabled class="btn btn-info">Tokens</button>
                                     @endif
                                 </div>

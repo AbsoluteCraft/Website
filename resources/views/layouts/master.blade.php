@@ -16,7 +16,7 @@
     @if(session()->has('flashMessage'))
         <?php $flash = session()->get('flashMessage'); ?>
         <div class="alert alert-flash alert-{{ $flash['type'] }}">
-            {{ $flash['message'] }}
+            {!! $flash['message'] !!}
         </div>
     @endif
 

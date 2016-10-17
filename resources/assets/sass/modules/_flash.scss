@@ -1,5 +1,6 @@
 .alert-flash {
 	position: fixed;
+	z-index: 1000;
 	top: 0;
 	left: 50%;
 	padding: 10px 50px;
@@ -7,6 +8,7 @@
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	transform: translateX(-50%);
+	text-align: center;
 	color: #FFF;
 
 	&.alert-success {
@@ -20,5 +22,9 @@
 	}
 	&.alert-danger {
 		background: rgba($danger, 0.7);
+	}
+
+	a {
+		color: #D4D4D4;
 	}
 }

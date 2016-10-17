@@ -26,6 +26,10 @@ class UserRepository {
 			}
 		}
 
+		if(isset($fields['bio'])) {
+			$user->bio = trim($fields['bio']);
+		}
+
 		if($user->isDirty()) {
 			$user->save();
 		}

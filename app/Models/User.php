@@ -20,7 +20,7 @@ class User extends Authenticatable {
 		'dob',
 		'uuid',
 		'location',
-		'bio',
+		'profile_background_id',
     ];
 
     /**
@@ -62,10 +62,14 @@ class User extends Authenticatable {
 	 * @return object
 	 */
 	public function getRankAttribute() {
-		$rank = (object) config('ranks.' . $this->attributes['rank']);
-		$rank->id = $this->attributes['rank'];
+		if(!is_object($this->attributes['rank'])) {
+			$rank = (object)config('ranks.' . $this->attributes['rank']);
+			$rank->id = $this->attributes['rank'];
 
-		return $rank;
+			return $rank;
+		}
+
+		return $this->attributes['rank'];
 	}
 
 	/**

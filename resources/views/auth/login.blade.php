@@ -8,17 +8,17 @@
                 <h3>Login to {{ trans('general.name') }}</h3>
                 <form action="{{ route('auth.login-post') }}" method="post" class="form-horizontal">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    @if($errors->has('email'))
+                        <div class="alert alert-danger">
+                            {{ $errors->first('email') }}
+                        </div>
+                    @endif
                     <div class="form-group">
                         <label for="email" class="sr-only control-label">Email</label>
                         <div class="col-md-12">
                             <input type="email" name="email" id="email" placeholder="Email" class="form-control" required autofocus value="{{ old('email') ? old('email') : '' }}">
                         </div>
                     </div>
-                    @if($errors->has('email'))
-                        <div class="alert alert-danger">
-                            {{ $errors->first('email') }}
-                        </div>
-                    @endif
                     <div class="form-group">
                         <label for="password" class="sr-only control-label">Password</label>
                         <div class="col-md-12">

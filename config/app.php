@@ -163,6 +163,7 @@ return [
 		 * Package Service Providers...
 		 */
 		Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+		Skovmand\Mailchimp\MailchimpServiceProvider::class,
 
     ],
 

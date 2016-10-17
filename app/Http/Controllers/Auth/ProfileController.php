@@ -17,6 +17,8 @@ class ProfileController extends Controller  {
 
 	public function update(Request $request) {
 		$this->userRepository->update(Auth::user(), $request);
+
+		return redirect()->route('player', ['username' => Auth::user()->username]);
 	}
 
 }

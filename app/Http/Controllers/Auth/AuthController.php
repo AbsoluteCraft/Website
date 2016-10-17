@@ -22,7 +22,12 @@ class AuthController extends Controller {
      */
     protected $redirectTo = '/';
 
-    public function __construct() {
+	private $mailchimp;
+	private $mailchimpListId = '220613f72e';
+
+    public function __construct(\Mailchimp $mailchimp) {
+    	$this->mailchimp = $mailchimp;
+
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
@@ -40,7 +45,7 @@ class AuthController extends Controller {
         if($mojangPlayer == false) {
             return redirect()->back()
                 ->withErrors(['username' => 'This username is not registered with Mojang. Please use your Minecraft username.'])
-                ->withInput();
+                ->withInput($request->except('password'));
         }
 
         $player = Player::where('uuid', $mojangPlayer['id'])->first();
@@ -49,6 +54,22 @@ class AuthController extends Controller {
 				'uuid' => $mojangPlayer['id'],
 				'username' => $request->get('username')
 			]);
+		}
+
+		$flash = 'You are registered as ' . $request->get('username') . '!';
+
+		if($request->has('newsletter')) {
+			try {
+				/** @noinspection PhpParamsInspection */
+				$this->mailchimp->lists
+					->subscribe($this->mailchimpListId, [
+						'email' => $request->get('email')
+					]);
+			} catch(\Mailchimp_List_AlreadySubscribed $e) {
+				$flash .= ' (But you were already signed up to our newsletter?!)';
+			} catch(\Mailchimp_Error $e) {
+				$flash .= ' (Failed to subscribe to newsletter. <a href="http://eepurl.com/biTv71">Click here to manually sign up!</a>)';
+			}
 		}
 
         $user = User::create([
@@ -61,6 +82,8 @@ class AuthController extends Controller {
         ]);
 
         Auth::guard($this->getGuard())->login($user);
+
+		flash_message($flash, 'success');
 
         return redirect($this->redirectPath());
     }

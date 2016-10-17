@@ -10,7 +10,7 @@
                     <div class="form-group">
                         <label for="username" class="col-md-2 control-label">Username</label>
                         <div class="col-md-5">
-                            <input type="text" name="username" id="username" class="form-control" required{{ old('username') ? ' value="' . old('username') . '"' : '' }}>
+                            <input type="text" name="username" id="username" class="form-control" required{!! old('username') ? ' value="' . old('username') . '"' : '' !!}>
                         </div>
                         <div class="col-md-5 form-helper">
                             <span><img src="https://crafatar.com/avatars/8667ba71b85a4004af54457a9734eed7?size=16" alt="Steve" id="register-avatar">This should be your Minecraft username</span>
@@ -25,10 +25,10 @@
                     <div class="form-group">
                         <label for="code" class="col-md-2 control-label">Registration code</label>
                         <div class="col-md-5">
-                            <input type="text" name="code[1]" id="code1" class="form-control codes" required maxlength="2"{!! old('code[1]') ? ' value="' . old('code[1]') . '"' : '' !!}>&nbsp;&nbsp;-&nbsp;
-                            <input type="text" name="code[2]" id="code2" class="form-control codes" required maxlength="2"{!! old('code[2]') ? ' value="' . old('code[2]') . '"' : '' !!}>&nbsp;&nbsp;-&nbsp;
-                            <input type="text" name="code[3]" id="code3" class="form-control codes" required maxlength="2"{!! old('code[3]') ? ' value="' . old('code[3]') . '"' : '' !!}>&nbsp;&nbsp;-&nbsp;
-                            <input type="text" name="code[4]" id="code4" class="form-control codes" required maxlength="2"{!! old('code[4]') ? ' value="' . old('code[4]') . '"' : '' !!}>
+                            <input type="text" name="code[1]" id="code1" class="form-control codes" required maxlength="2"{!! old('code.1') ? ' value="' . old('code.1') . '"' : '' !!}>&nbsp;&nbsp;-&nbsp;
+                            <input type="text" name="code[2]" id="code2" class="form-control codes" required maxlength="2"{!! old('code.2') ? ' value="' . old('code.2') . '"' : '' !!}>&nbsp;&nbsp;-&nbsp;
+                            <input type="text" name="code[3]" id="code3" class="form-control codes" required maxlength="2"{!! old('code.3') ? ' value="' . old('code.3') . '"' : '' !!}>&nbsp;&nbsp;-&nbsp;
+                            <input type="text" name="code[4]" id="code4" class="form-control codes" required maxlength="2"{!! old('code.4') ? ' value="' . old('code.4') . '"' : '' !!}>
                         </div>
                         <div class="col-md-5 form-helper">
                             <span>Looks like 12-34-56-78</span>
@@ -67,7 +67,7 @@
                     <div class="form-group">
                         <label for="email" class="col-md-2 control-label">E-mail</label>
                         <div class="col-md-5">
-                            <input type="email" name="email" id="email" class="form-control" required{{ old('email') ? ' value="' . old('email') . '"' : '' }}>
+                            <input type="email" name="email" id="email" class="form-control" required{!! old('email') ? ' value="' . old('email') . '"' : '' !!}>
                         </div>
                     </div>
                     @if($errors->has('email'))
@@ -313,7 +313,7 @@
                                 <option value="UG">Uganda</option>
                                 <option value="UA">Ukraine</option>
                                 <option value="AE">United Arab Emirates</option>
-                                <option value="GB">United Kingdom</option>
+                                <option value="GB" selected="selected">United Kingdom</option>
                                 <option value="US">United States</option>
                                 <option value="UM">United States Minor Outlying Islands</option>
                                 <option value="UY">Uruguay</option>
@@ -339,7 +339,7 @@
                     <div class="form-group">
                         <label for="date" class="col-md-2">Date of Birth</label>
                         <div class="col-md-5">
-                            <input type="date" name="dob" id="date" class="form-control" required{{ old('dob') ? ' value="' . old('dob') . '"' : '' }}>
+                            <input type="date" name="dob" id="date" class="form-control" required{!! old('dob') ? ' value="' . old('dob') . '"' : '' !!}>
                         </div>
                     </div>
                     @if($errors->has('dob'))
@@ -351,7 +351,7 @@
                         <div class="col-sm-offset-2 col-sm-5">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" name="newsletter" checked> Sign up for our quarterly newsletter
+                                    <input type="checkbox" name="newsletter" value="1" checked> Sign up for our quarterly newsletter
                                 </label>
                             </div>
                         </div>
