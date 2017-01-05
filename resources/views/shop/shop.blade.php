@@ -83,7 +83,11 @@
                     <div class="modal-footer">
                         <p class="price text-vip">£5.00 or above</p>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-info btn-donate" data-rank="vip"><span class="fa fa-lock"></span> &nbsp; Buy securely with PayPal</button>
+                        @if(Auth::check())
+                            <button type="button" class="btn btn-info btn-donate" data-rank="vip"><span class="fa fa-lock"></span> &nbsp; Buy securely with PayPal</button>
+                        @else
+                            <a href="{{ route('auth.login') }}" class="btn btn-success">Login or register to donate</a>
+                        @endif
                     </div>
                 </div>
             </div>

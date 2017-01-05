@@ -4,7 +4,10 @@ var instantclick = require('instantclick');
 
 $(function() {
 
-    instantclick.init();
+    // The location hash changes on shop.js seem to mess with InstantClick
+    if(window.location.href.indexOf('/shop') == -1) {
+        instantclick.init();
+    }
 
     require('./modules/nav');
     require('./modules/copy-ip');
