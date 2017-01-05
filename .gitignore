@@ -1,13 +1,11 @@
 /vendor
 /node_modules
-/storage
 .vagrant
 .idea
 Homestead.yaml
 Homestead.json
 .env
 _ide_helper.php
-
 public/css
 public/js
 public/uploads
