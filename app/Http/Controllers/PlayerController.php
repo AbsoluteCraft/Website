@@ -28,14 +28,14 @@ class PlayerController extends Controller {
 
 	public function search(Request $request) {
 		$this->validate($request, [
-			'username' => 'required'
+			'username' => 'required|max:16'
 		]);
 
 		$player = Player::where('username', $request->get('username'))
 			->first();
 
 		if($player) {
-			return redirect()->route('player', ['username' => $player]);
+			return redirect()->route('player', ['username' => $player->username]);
 		}
 
 		return redirect()->route('players')
@@ -50,7 +50,7 @@ class PlayerController extends Controller {
 
 		$players = Player::notStaff()
 			->select('players.*')
-			->orderBy('created_at', 'desc')
+			->orderBy('id', 'desc') // players table doesn't have timestamps
 			->take(50)
 			->get();
 

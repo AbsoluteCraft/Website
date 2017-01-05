@@ -11,9 +11,11 @@ Route::group(['middleware' => ['api'], 'prefix' => 'api', 'namespace' => 'Api'],
 	Route::post('player/join', ['uses' => 'PlayerController@join']);
 	Route::post('player/leave', ['uses' => 'PlayerController@leave']);
 
-	Route::get('player/{uuid}', ['uses' => 'PlayerController@get']);
+	Route::get('player', ['uses' => 'PlayerController@get']);
 	Route::post('player', ['uses' => 'PlayerController@create']);
-	Route::put('player/{uuid}', ['uses' => 'PlayerController@update']);
+	Route::put('player', ['uses' => 'PlayerController@update']);
+	Route::put('player/tokens/add', ['uses' => 'PlayerController@addTokens']);
+	Route::put('player/tokens/remove', ['uses' => 'PlayerController@removeTokens']);
 
 	/*
 	|--------------------------------------------------------------------------

@@ -15,27 +15,23 @@ class PlayerController extends ApiController {
 		$this->repo = $playerRepository;
 	}
 
-	public function get($uuid) {
-		if(strlen($uuid) <= 16) {
-			$player = $this->repo->getByUsername($uuid);
-		} else {
-			$player = $this->repo->getByUUID($uuid);
-		}
+	public function get(Request $request) {
+		$this->validate($request, [
+			'uuid' => 'required'
+		]);
+
+		$player = $this->repo->getByUUID($request->get('uuid'), true);
 
 		return $this->response($player);
 	}
 
 	public function update(Request $request) {
 		$this->validate($request, [
-			'id' => 'required'
+			'uuid' => 'required'
 		]);
 
-		$player = $this->repo->get($request->get('uuid'));
-		if($player == null) {
-			return $this->error('Player not found', 404);
-		}
-
-		$player = $player->update($request->all());
+		$player = $this->repo->getByUUID($request->get('uuid'), true);
+		$player = $player->update($request->except('uuid'));
 
 		return $this->response($player);
 	}
@@ -57,10 +53,10 @@ class PlayerController extends ApiController {
 			'username' => 'required'
 		]);
 
-		$player = $this->repo->getOrCreate($request->get('uuid'), $request->get('username'));
-
-		$player->online = true;
-		$player->save();
+		$player = $this->repo->getOrNew($request->get('uuid'), $request->get('username'));
+		$player = $this->repo->update($player, [
+			'online' => true
+		]);
 
 		return $this->response($player);
 	}
@@ -70,12 +66,40 @@ class PlayerController extends ApiController {
 			'uuid' => 'required'
 		]);
 
-		$player = $this->repo->get($request->get('uuid'));
+		$player = $this->repo->getByUUID($request->get('uuid'), true);
 
-		$player->online = true;
-		$player->last_seen = Carbon::now();
+		$player = $this->repo->update($player, [
+			'online' => false,
+			'last_seen' => Carbon::now()
+		]);
 
-		$player->save();
+		return $this->response($player);
+	}
+
+	public function addTokens(Request $request) {
+		$this->validate($request, [
+			'uuid' => 'required',
+			'amount' => 'required'
+		]);
+
+		$player = $this->repo->getByUUID($request->get('uuid'), true);
+		$player = $this->repo->update($player, [
+			'tokens' => $player->tokens + $request->get('amount')
+		]);
+
+		return $this->response($player);
+	}
+
+	public function removeTokens(Request $request) {
+		$this->validate($request, [
+			'uuid' => 'required',
+			'amount' => 'required'
+		]);
+
+		$player = $this->repo->getByUUID($request->get('uuid'), true);
+		$player = $this->repo->update($player, [
+			'tokens' => $player->tokens - $request->get('amount')
+		]);
 
 		return $this->response($player);
 	}

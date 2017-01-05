@@ -16,7 +16,11 @@ class Player extends Model {
 	 * @var array
 	 */
 	protected $fillable = [
-		'uuid', 'username', 'tokens'
+		'uuid',
+		'username',
+		'tokens',
+		'online',
+		'last_seen',
 	];
 
 	public function user() {

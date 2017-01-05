@@ -47,7 +47,6 @@
                     @endif
                 </ul>
             </div>
-            <button type="button" class="btn btn-sm btn-cart" title="Cart"><span class="fa fa-shopping-cart" aria-hidden="true"></span></button>
         </nav>
     </div>
     @if($page == 'home')

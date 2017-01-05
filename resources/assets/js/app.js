@@ -8,6 +8,7 @@ $(function() {
 
     require('./modules/nav');
     require('./modules/copy-ip');
+    require('./modules/notify-ip');
     require('./modules/cart');
     require('./modules/sticky-help');
 
