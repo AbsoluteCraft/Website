@@ -7,8 +7,8 @@
 
     <title>@if(isset($title)){{ $title . ' | ' . trans('general.name') }}@else{{ trans('general.title') }}@endif</title>
 
-    <link rel="stylesheet" href="{{ asset('css/style.css')}}">
-    <link rel="stylesheet" href="{{ asset('css/dashboard.css')}}">
+    <link rel="stylesheet" href="{{ app_asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{ app_asset('css/dashboard.css')}}">
     @include('partials.favicons')
 </head>
 <body class="dashboard">
@@ -26,6 +26,6 @@
     @yield('content')
 </div>
 
-<script src="{{ asset('js/dashboard.js') }}"></script>
+<script src="{{ app_asset('js/dashboard.js') }}"></script>
 </body>
 </html>

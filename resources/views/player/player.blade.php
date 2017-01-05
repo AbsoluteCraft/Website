@@ -87,7 +87,7 @@ This player has not set their bio.
                             @if($player->user->location != null && $player->user->public_location == true)
                                 <tr>
                                     <td>Location</td>
-                                    <td><img src="{{ asset('img/flags/' . strtoupper($player->user->location) . '.png') }}" alt="{{ strtoupper($player->user->location) }}"></td>
+                                    <td><img src="{{ app_asset('img/flags/' . strtoupper($player->user->location) . '.png') }}" alt="{{ strtoupper($player->user->location) }}"></td>
                                 </tr>
                             @endif
                             @if($player->user->dob != null && $player->user->public_dob == true)

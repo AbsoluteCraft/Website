@@ -1,9 +1,13 @@
 <?php
 
-function assets($path, $secure = null) {
-	return app('url')->asset('assets/' . $path, $secure);
+function app_asset($path) {
+	return app('url')->asset($path, env('APP_SECURE'));
 }
 
-function upload($path, $secure = null) {
-	return app('url')->asset('uploads/' . $path, $secure);
+function assets($path) {
+	return app_asset('assets/' . $path);
+}
+
+function upload($path) {
+	return app_asset('uploads/' . $path);
 }
