@@ -6,6 +6,11 @@
             <div class="row">
                 <div class="item item-lg">
                     <div class="item-embed">
+                        <iframe src="http://www.youtube.com/embed/MPpLmp9BnEs" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-embed">
                         <iframe src="http://www.youtube.com/embed/NZRzY8j7MW4" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
@@ -14,13 +19,13 @@
                         <iframe src="http://www.youtube.com/embed/R2xeRW2AVNc" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
+            </div>
+            <div class="row">
                 <div class="item">
                     <div class="item-embed">
                         <a href="http://us10.campaign-archive1.com/?u=bc99df9c74d3261fdc46864d9&id=2f52a0e952"><img src="{{ assets('news-absoluterpg.jpg') }}" alt="July Newsletter 2015"></a>
                     </div>
                 </div>
-            </div>
-            <div class="row">
                 <div class="item">
                     <div class="item-embed">
                         <a href="http://us10.campaign-archive2.com/?u=bc99df9c74d3261fdc46864d9&id=5e22c6e83b"><img src="{{ assets('new-hierarchy.jpg') }}" alt="May Newsletter 2015"></a>
@@ -29,11 +34,6 @@
                 <div class="item">
                     <div class="item-embed">
                         <a href="http://us10.campaign-archive1.com/?u=bc99df9c74d3261fdc46864d9&id=1ae22da122"><img src="{{ assets('april-newsletter-2015.jpg') }}" alt="April Newsletter 2015"></a>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="item-embed">
-                        <a href="news/monthly-minigames"><img src="{{ assets('monthly-minigames.jpg') }}" alt="Monthly Minigames"></a>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                         <a href="{{ trans('home.discord.code') }}" target="_blank" class="btn btn-success">{{ trans('home.discord.apply') }}</a>
                     </div>
                     <div class="col-sm-4">
-                        <img src="{{ assets('apartments.png') }}" alt="Apartments Render" class="img-responsive">
+                        <img src="{{ assets('apartments.gif') }}" alt="Apartments Render" class="img-responsive">
                     </div>
                 </div>
     		</div>
