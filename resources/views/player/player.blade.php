@@ -46,7 +46,11 @@
                                 {{ $player->tokens }} Tokens
                             </li>
                             <li>
-                                Joined {{ \Carbon\Carbon::parse($player->first_joined)->toFormattedDateString() }}
+                                @if($player->first_joined == 0)
+                                    Joined 2013-2015
+                                @else
+                                    Joined {{ \Carbon\Carbon::parse($player->first_joined)->toFormattedDateString() }}
+                                @endif
                             </li>
                         </ul>
                     </div>
@@ -61,13 +65,13 @@
                         <span id="bio-text">
 @if($player->user && $player->user->bio != null)
 {!! nl2br($player->user->bio) !!}
-@elseif(Auth::check())
+@elseif(Auth::check() && $player->user && $player->user->id == Auth::user()->id)
 You have not made a bio! Click edit to create one:
 @else
 This player has not set their bio.
 @endif
                         </span>
-                        @if(Auth::check() && $player->user->id == Auth::user()->id)
+                        @if(Auth::check() && $player->user && $player->user->id == Auth::user()->id)
                             <button type="button" class="btn pull-right" id="btn-edit-profile"><span class="fa fa-pencil"></span></button>
                         @endif
                     </div>

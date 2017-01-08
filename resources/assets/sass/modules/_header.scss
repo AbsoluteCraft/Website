@@ -72,7 +72,7 @@
 
     .logo {
         width: 357px;
-        max-width: 100%;
+        max-width: calc(100% - 50px);
     }
 
     $bar-width: 32px;
