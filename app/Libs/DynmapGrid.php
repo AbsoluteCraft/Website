@@ -4,7 +4,7 @@ namespace App\Libs;
 
 class DynmapGrid {
 
-	public $url = 'http://map.mac-ac.com';
+	public $url = 'http://map.mc-ac.com';
 
 	public function generate($x, $z, $world, $map) {
 		$grid = $this->buildGrid($x, $z);
