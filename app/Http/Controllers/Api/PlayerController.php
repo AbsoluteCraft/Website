@@ -6,6 +6,7 @@ use App\Models\Player\Player;
 use App\Repositories\PlayerRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class PlayerController extends ApiController {
 
@@ -19,8 +20,9 @@ class PlayerController extends ApiController {
 		$this->validate($request, [
 			'uuid' => 'required'
 		]);
+		$uuid = parse_uuid($request->get('uuid'));
 
-		$player = $this->repo->getByUUID($request->get('uuid'), true);
+		$player = $this->repo->getByUUID($uuid, true);
 
 		return $this->response($player);
 	}
@@ -29,8 +31,9 @@ class PlayerController extends ApiController {
 		$this->validate($request, [
 			'uuid' => 'required'
 		]);
+		$uuid = parse_uuid($request->get('uuid'));
 
-		$player = $this->repo->getByUUID($request->get('uuid'), true);
+		$player = $this->repo->getByUUID($uuid, true);
 		$player = $player->update($request->except('uuid'));
 
 		return $this->response($player);
@@ -41,8 +44,10 @@ class PlayerController extends ApiController {
 			'uuid' => 'required|unique:players'
 		]);
 
-		$player = new Player();
-		$player = $player->update($request->all());
+		$fields = $request->all();
+		$fields['uuid'] = parse_uuid($fields['uuid']);
+
+		$player = $this->repo->create($fields);
 
 		return $this->response($player, 201);
 	}
@@ -52,8 +57,9 @@ class PlayerController extends ApiController {
 			'uuid' => 'required',
 			'username' => 'required'
 		]);
+		$uuid = parse_uuid($request->get('uuid'));
 
-		$player = $this->repo->getOrNew($request->get('uuid'), $request->get('username'));
+		$player = $this->repo->getOrNew($uuid, $request->get('username'));
 		$player = $this->repo->update($player, [
 			'online' => true
 		]);
@@ -65,9 +71,9 @@ class PlayerController extends ApiController {
 		$this->validate($request, [
 			'uuid' => 'required'
 		]);
+		$uuid = parse_uuid($request->get('uuid'));
 
-		$player = $this->repo->getByUUID($request->get('uuid'), true);
-
+		$player = $this->repo->getByUUID($uuid, true);
 		$player = $this->repo->update($player, [
 			'online' => false,
 			'last_seen' => Carbon::now()
@@ -81,8 +87,9 @@ class PlayerController extends ApiController {
 			'uuid' => 'required',
 			'amount' => 'required'
 		]);
+		$uuid = parse_uuid($request->get('uuid'));
 
-		$player = $this->repo->getByUUID($request->get('uuid'), true);
+		$player = $this->repo->getByUUID($uuid, true);
 		$player = $this->repo->update($player, [
 			'tokens' => $player->tokens + $request->get('amount')
 		]);
@@ -95,8 +102,9 @@ class PlayerController extends ApiController {
 			'uuid' => 'required',
 			'amount' => 'required'
 		]);
+		$uuid = parse_uuid($request->get('uuid'));
 
-		$player = $this->repo->getByUUID($request->get('uuid'), true);
+		$player = $this->repo->getByUUID($uuid, true);
 		$player = $this->repo->update($player, [
 			'tokens' => $player->tokens - $request->get('amount')
 		]);

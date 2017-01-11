@@ -23,4 +23,11 @@ Route::group(['middleware' => ['api'], 'prefix' => 'api', 'namespace' => 'Api'],
 	|--------------------------------------------------------------------------
 	*/
 	Route::get('leaderboard/tokens', ['uses' => 'LeaderboardController@getTokens']);
+
+	/*
+	|--------------------------------------------------------------------------
+	| Announcements
+	|--------------------------------------------------------------------------
+	*/
+	Route::get('announcements', ['uses' => 'AnnouncementController@get']);
 });

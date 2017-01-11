@@ -11,3 +11,7 @@ function possessive($person) {
 
 	return $person . "'s";
 }
+
+function parse_uuid($uuid) {
+	return str_replace('-', '', $uuid);
+}

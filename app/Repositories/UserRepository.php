@@ -5,7 +5,11 @@ namespace App\Repositories;
 use App\Models\Player\Player;
 use App\Models\User;
 
-class UserRepository {
+class UserRepository extends Repository {
+
+	public function __construct() {
+		parent::__construct(User::class);
+	}
 
 	/**
 	 * Find a player from a User (using UUID)
@@ -19,19 +23,11 @@ class UserRepository {
 		return $playerRepository->getByUUID($user->uuid);
 	}
 
-	public function update(User $user, $fields) {
-		foreach($user->getFillable() as $field) {
-			if(isset($fields[$field])) {
-				$user->{$field} = $fields[$field];
-			}
-		}
+	public function update($user, $fields) {
+		$user = parent::update($user, $fields);
 
 		if(isset($fields['bio'])) {
 			$user->bio = trim($fields['bio']);
-		}
-
-		if($user->isDirty()) {
-			$user->save();
 		}
 
 		return $user;

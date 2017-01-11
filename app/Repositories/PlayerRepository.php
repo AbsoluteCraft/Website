@@ -7,7 +7,11 @@ use App\Models\Player\Player;
 use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
-class PlayerRepository {
+class PlayerRepository extends Repository {
+
+	public function __construct() {
+		parent::__construct(Player::class);
+	}
 
 	/**
 	 * Find a player by Minecraft UUID
@@ -82,12 +86,8 @@ class PlayerRepository {
 		return $player;
 	}
 
-	public function update(Player $player, $fields) {
-		foreach($player->getFillable() as $field) {
-			if(isset($fields[$field])) {
-				$player->{$field} = $fields[$field];
-			}
-		}
+	public function update($player, $fields) {
+		$player = parent::update($player, $fields);
 
 		if(isset($fields['last_seen'], $fields['last_seen_world'])) {
 			if($player->last_seen) {
@@ -100,10 +100,6 @@ class PlayerRepository {
 			$last_seen->world = $fields['last_seen_world'];
 
 			$last_seen->save();
-		}
-
-		if($player->isDirty()) {
-			$player->save();
 		}
 
 		return $player;
