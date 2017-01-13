@@ -1,5 +1,7 @@
 # AbsoluteCraft Website
 
+[![Travis](https://img.shields.io/travis/AbsoluteCraft/Website.svg?style=flat-square)](https://travis-ci.org/AbsoluteCraft/Website)
+
 ![Website Screenshot](http://i.imgur.com/WTe7qFZ.png)
 
 ## Install

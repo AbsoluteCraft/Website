@@ -6,27 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Announcement extends Model {
 
-	/**
-	 * The table associated with the model.
-	 *
-	 * @var string
-	 */
 	public $table = 'announcements';
 
-	/**
-	 * The attributes that are mass assignable.
-	 *
-	 * @var array
-	 */
 	protected $fillable = [
 		'message',
 	];
 
-	/**
-	 * The attributes that should be hidden for arrays.
-	 *
-	 * @var array
-	 */
 	protected $hidden = [];
+
+	public function user() {
+		return $this->belongsTo(User::class, 'added_by');
+	}
 
 }

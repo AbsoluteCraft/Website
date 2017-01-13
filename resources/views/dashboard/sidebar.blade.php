@@ -14,11 +14,25 @@
             <li{!! $page == 'donations' ? ' class="active"': '' !!}>
                 <a href="{{ route('dashboard.donations') }}">
                     <span class="fa fa-gbp"></span>
-                    <span class="label label-success pull-right">{{ $donations_count }}</span>
+                    @if($donations_count > 0)
+                        <span class="label label-success pull-right">{{ $donations_count }}</span>
+                    @endif
                     <p>Donations</p>
                 </a>
             </li>
-
+            <li{!! $page == 'motd' ? ' class="active"': '' !!}>
+                <a href="{{ route('dashboard.motd') }}">
+                    <span class="fa fa-commenting"></span> <p>MOTD</p>
+                    @if($motds_count > 0)
+                        <span class="label label-danger pull-right">{{ $motds_count }}</span>
+                    @endif
+                </a>
+            </li>
+            <li{!! $page == 'announcements' ? ' class="active"': '' !!}>
+                <a href="{{ route('dashboard.announcements') }}">
+                    <span class="fa fa-bullhorn"></span> <p>Announcements</p>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

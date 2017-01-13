@@ -19,17 +19,17 @@
                             <input type="email" name="email" id="email" placeholder="Email" class="form-control" required autofocus value="{{ old('email') ? old('email') : '' }}">
                         </div>
                     </div>
+                    @if($errors->has('password'))
+                        <div class="alert alert-danger">
+                            {{ $errors->first('password') }}
+                        </div>
+                    @endif
                     <div class="form-group">
                         <label for="password" class="sr-only control-label">Password</label>
                         <div class="col-md-12">
                             <input type="password" name="password" id="password" placeholder="Password" class="form-control" required>
                         </div>
                     </div>
-                    @if($errors->has('password'))
-                        <div class="alert alert-danger">
-                            {{ $errors->first('password') }}
-                        </div>
-                    @endif
                     <div class="form-group">
                         <div class="col-md-12">
                             <input type="submit" value="Login" class="btn btn-primary">
@@ -37,6 +37,12 @@
                     </div>
                 </form>
                 <a href="{{ route('auth.register') }}">Create an account</a> &nbsp; | &nbsp; <a href="{{ route('auth.recover-password') }}">Forgot password?</a>
+                @if(count($errors) > 0)
+                    <br><br>
+                    <div class="alert alert-danger">
+                        {{ var_dump($errors->messages()) }}
+                    </div>
+                @endif
             </div>
         </div>
     </main>
