@@ -18,7 +18,7 @@
                 <tbody>
                     @foreach($users as $user)
                         <tr>
-                            <td class="text-center"><img src="{{ player_avatar($user->uuid) }}" alt="{{ $user->username }}"></td>
+                            <td class="text-center avatar-col"><img src="{{ player_avatar($user->uuid) }}" alt="{{ $user->username }}"></td>
                             <td><a href="{{ route('player', ['player' => $user->username]) }}" target="_blank"><span class="text-{{ $user->rank->name }} usernameFilter">{{ $user->username }}</span></a></td>
                             <td data-order="{{ $user->rank->id }}"><span class="label label-{{ $user->rank->name }}">{{ $user->rank->title }}</span></td>
                             <td>{{ isset($user->player) ? $user->player->tokens : 0 }}</td>
