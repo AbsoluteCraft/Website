@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Player\Background;
+use App\Models\Player\Player;
 use Golonka\BBCode\BBCodeParser;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -31,6 +32,10 @@ class User extends Authenticatable {
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function player() {
+    	return $this->hasOne(Player::class, 'uuid', 'uuid');
+	}
 
 	public function background() {
 		return $this->belongsTo(Background::class, 'profile_background_id');

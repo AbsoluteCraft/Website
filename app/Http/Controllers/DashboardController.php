@@ -34,8 +34,7 @@ class DashboardController extends Controller {
 	}
 
 	public function getUsers(Request $request) {
-		$users = User::orderBy($request->get('sort', 'rank'), $request->get('order', 'desc'))
-			->get();
+		$users = User::with('player')->get();
 
 		return view('dashboard.users', [
 			'users' => $users

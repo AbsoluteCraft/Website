@@ -5,15 +5,15 @@
         <div class="container">
             <h2 class="page-title">
                 Server Announcements
-                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#add-announcement"><span class="fa fa-plus"></span></button>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-announcement"><span class="fa fa-plus"></span></button>
             </h2>
-            <table class="table table-striped">
+            <table id="table-announcements" class="table table-striped">
                 <thead>
                     <tr>
-                        <td>Message </td>
-                        <td>Added by</td>
-                        <td class="active">Created At  <button type="submit" name="date-a"><span class="caret caret-reversed"></span></button></td>
-                        <td class="text-center">Actions</td>
+                        <th>Message </th>
+                        <th>Added by</th>
+                        <th>Created At</th>
+                        <th class="text-center">Actions</th>
                     </tr>
                 </thead>
                 <tbody>

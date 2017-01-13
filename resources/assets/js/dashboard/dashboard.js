@@ -1,6 +1,9 @@
 global.$ = global.jQuery = require('jquery');
 var bootstrap = require('bootstrap');
 
+require('datatables.net')(window, $);
+require('datatables.net-bs')(window, $);
+
 $(function() {
     require('./sidebar');
 
@@ -8,7 +11,10 @@ $(function() {
     var pageLoader = {
         pages: {
             'dashboard-home': require('./home'),
-            'dashboard-motds': require('./motd')
+            'dashboard-users': require('./users'),
+            'dashboard-donations': require('./donations'),
+            'dashboard-motds': require('./motd'),
+            'dashboard-announcements': require('./announcements')
         },
         init: function() {
             for(var p in pageLoader.pages) {

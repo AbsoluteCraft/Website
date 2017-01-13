@@ -16,10 +16,10 @@ class MotdController extends Controller {
 	}
 
 	public function get() {
-		$motds = $this->motdRepository->all();
+		$motd = $this->motdRepository->get();
 
 		return view('dashboard.motd', [
-			'motds' => $motds
+			'motd' => $motd
 		]);
 	}
 
