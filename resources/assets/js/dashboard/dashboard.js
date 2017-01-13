@@ -7,7 +7,8 @@ $(function() {
     // Load the relevant page script
     var pageLoader = {
         pages: {
-            'dashboard-home': require('./home')
+            'dashboard-home': require('./home'),
+            'dashboard-motds': require('./motd')
         },
         init: function() {
             for(var p in pageLoader.pages) {

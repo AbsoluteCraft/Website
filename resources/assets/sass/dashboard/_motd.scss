@@ -1,0 +1,10 @@
+.dashboard-motds {
+	.motd-icon-input {
+		float: left;
+		width: calc(100% - 25px);
+	}
+	.motd-icon-input ~ .fa {
+		float: right;
+		padding-top: 10px;
+	}
+}
