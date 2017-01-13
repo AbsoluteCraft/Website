@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="logo col-xs-2">
-                <img src="{{ app_asset('img/avatar.png') }}" alt="{{ trans('general.name') }} Avatar">
+                <img src="{{ asset('img/avatar.png') }}" alt="{{ trans('general.name') }} Avatar">
             </div>
             <nav class="nav col-sm-2">
                 <h2>{{ trans('nav.help_support') }}</h2>

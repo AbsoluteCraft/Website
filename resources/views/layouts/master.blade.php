@@ -7,7 +7,7 @@
 
     <title>@if(isset($title)){{ $title . ' | ' . trans('general.name') }}@else{{ trans('general.title') }}@endif</title>
 
-    <link rel="stylesheet" href="{{ app_asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/style.css')}}">
     @include('partials.favicons')
 </head>
 <body>
@@ -26,6 +26,6 @@
     @include('partials.cart')
     @include('partials.sticky-help')
 
-    <script src="{{ app_asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>
