@@ -10,4 +10,8 @@ class MotdRepository extends Repository {
 		parent::__construct(Motd::class);
 	}
 
+	public function get($id = null, $fail = false) {
+		return Motd::first();
+	}
+
 }

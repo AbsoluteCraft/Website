@@ -4,16 +4,16 @@
     <main class="dashboard-donations">
         <div class="container">
             <h2 class="page-title">Donations</h2>
-            <table class="table table-striped">
+            <table id="table-donations" class="table table-striped">
                 <thead>
                     <tr>
-                        <td class="filter"><input type="text" name="filter" id="filter" class="form-control input-sm" placeholder="Search..."></td>
-                        <td>Username  <button type="submit" name="username"><span class="caret caret-reversed"></span></button></td>
-                        <td>Rank  <button type="submit" name="rank-a"><span class="caret caret-reversed"></span></button></td>
-                        <td>Amount  <button type="submit" name="amount"><span class="caret caret-reversed"></span></button></td>
-                        <td>Status  <button type="submit" name="status"><span class="caret caret-reversed"></span></button></td>
-                        <td class="active">Date  <button type="submit" name="date-a"><span class="caret caret-reversed"></span></button></td>
-                        <td class="text-center">Actions</td>
+                        <th></th>
+                        <th>Username</th>
+                        <th>Rank</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                        <th class="text-center">Actions</th>
                     </tr>
                 </thead>
                 <tbody>

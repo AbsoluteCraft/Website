@@ -4,15 +4,15 @@
     <main class="dashboard-users">
         <div class="container">
             <h2 class="page-title">Users</h2>
-            <table class="table table-striped">
+            <table id="table-users" class="table table-striped">
                 <thead>
                     <tr>
-                        <td class="filter"><input type="text" name="filter" id="filter" class="form-control input-sm" placeholder="Search..."></td>
-                        <td>Username  <button type="submit" name="username"><span class="caret caret-reversed"></span></button></td>
-                        <td class="active">Rank  <button type="submit" name="rank-a"><span class="caret"></span></button></td>
-                        <td>Tokens  <button type="submit" name="tokens"><span class="caret caret-reversed"></span></button></td>
-                        <td>Date Joined  <button type="submit" name="date-a"><span class="caret caret-reversed"></span></button></td>
-                        <td class="text-center">Actions</td>
+                        <th></th>
+                        <th>Username</th>
+                        <th>Rank</th>
+                        <th>Tokens</th>
+                        <th>Date Joined</th>
+                        <th class="text-center">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -20,7 +20,7 @@
                         <tr>
                             <td class="text-center"><img src="{{ player_avatar($user->uuid) }}" alt="{{ $user->username }}"></td>
                             <td><a href="{{ route('player', ['player' => $user->username]) }}" target="_blank"><span class="text-{{ $user->rank->name }} usernameFilter">{{ $user->username }}</span></a></td>
-                            <td><span class="label label-{{ $user->rank->name }}">{{ $user->rank->title }}</span></td>
+                            <td data-order="{{ $user->rank->id }}"><span class="label label-{{ $user->rank->name }}">{{ $user->rank->title }}</span></td>
                             <td>{{ isset($user->player) ? $user->player->tokens : 0 }}</td>
                             <td>{{ \Carbon\Carbon::parse($user->created_at)->toFormattedDateString() }}</td>
                             <td class="text-center">
