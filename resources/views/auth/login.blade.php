@@ -37,12 +37,6 @@
                     </div>
                 </form>
                 <a href="{{ route('auth.register') }}">Create an account</a> &nbsp; | &nbsp; <a href="{{ route('auth.recover-password') }}">Forgot password?</a>
-                @if(count($errors) > 0)
-                    <br><br>
-                    <div class="alert alert-danger">
-                        {{ var_dump($errors->messages()) }}
-                    </div>
-                @endif
             </div>
         </div>
     </main>
