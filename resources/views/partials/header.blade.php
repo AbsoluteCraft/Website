@@ -14,8 +14,8 @@
     <div class="header-nav container">
         <a href="{{ route('home') }}">
             <picture>
-                <source srcset="{{ app_asset('img/logo.svg') }}">
-                <img src="{{ app_asset('img/logo.png')}}" alt="{{ trans('general.name') }}" class="logo">
+                <source srcset="{{ asset('img/logo.svg') }}">
+                <img src="{{ asset('img/logo.png')}}" alt="{{ trans('general.name') }}" class="logo">
             </picture>
         </a>
         <button type="button" class="menu">

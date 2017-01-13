@@ -31,7 +31,7 @@ class AuthController extends Controller {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
-    public function postRegister(Request $request) {
+	public function postRegister(Request $request) {
         $this->validate($request, [
             'username' => 'required|min:3|max:16|unique:users',
             'code' => 'required|array|arraylength:4',

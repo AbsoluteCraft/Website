@@ -7,7 +7,7 @@
 
     <title>{{ 'Server Status | ' . trans('general.name') }}</title>
 
-    <link rel="stylesheet" href="{{ app_asset('css/status.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/status.css')}}">
     @include('partials.favicons')
 </head>
 <body>
