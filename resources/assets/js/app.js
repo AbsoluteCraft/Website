@@ -18,6 +18,7 @@ $(function() {
     // Load the relevant page script
     var pageLoader = {
         pages: {
+            home: require('./pages/home'),
             player: require('./pages/player'),
             shop: require('./pages/shop')
         },

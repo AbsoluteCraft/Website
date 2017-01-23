@@ -6,17 +6,17 @@
             <div class="row">
                 <div class="item item-lg">
                     <div class="item-embed">
-                        <iframe src="http://www.youtube.com/embed/MPpLmp9BnEs" frameborder="0" allowfullscreen></iframe>
+                        <div class="lazyframe" data-vendor="youtube" data-src="http://www.youtube.com/embed/MPpLmp9BnEs&showinfo=0&rel=0&allowfullscreen=1"></div>
                     </div>
                 </div>
                 <div class="item">
                     <div class="item-embed">
-                        <iframe src="http://www.youtube.com/embed/NZRzY8j7MW4" frameborder="0" allowfullscreen></iframe>
+                        <div class="lazyframe" data-vendor="youtube" data-src="http://www.youtube.com/embed/NZRzY8j7MW4&showinfo=0&rel=0&allowfullscreen=1"></div>
                     </div>
                 </div>
                 <div class="item">
                     <div class="item-embed">
-                        <iframe src="http://www.youtube.com/embed/R2xeRW2AVNc" frameborder="0" allowfullscreen></iframe>
+                        <div class="lazyframe" data-vendor="youtube" data-src="http://www.youtube.com/embed/R2xeRW2AVNc&showinfo=0&rel=0&allowfullscreen=1"></div>
                     </div>
                 </div>
             </div>
