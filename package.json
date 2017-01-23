@@ -18,6 +18,7 @@
     "datatables.net-bs": "^1.10.13",
     "instantclick": "^3.1.0",
     "jquery": "^3.1.0",
+    "lazyframe": "^1.1.0",
     "moment": "^2.14.1",
     "qwest": "^4.4.5"
   }

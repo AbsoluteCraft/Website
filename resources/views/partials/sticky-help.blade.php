@@ -179,7 +179,7 @@
                 <h1>Server Status</h1>
                 <button type="button" class="pull-right sticky-help__close" data-sh-close="close"><span class="fa fa-close"></span></button>
             </header>
-            <iframe src="{{ route('status') }}" frameborder="0"></iframe>
+            <iframe src="" id="sticky-help__statusframe" data-src="{{ route('status') }}" frameborder="0"></iframe>
         </div>
     </div>
 </div>

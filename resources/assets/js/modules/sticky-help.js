@@ -16,6 +16,14 @@ var sh = {
             page = module;
         }
 
+        // Lazy load the iframe if we click on status
+        if(page == 'status') {
+            var $frame = $('#sticky-help__statusframe');
+            if($frame.attr('src') == '') {
+                $frame.attr('src', $frame.data('src'));
+            }
+        }
+
         sh.module = module;
         sh.page = page;
         sh.refresh();
