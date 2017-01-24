@@ -55,7 +55,7 @@
                 <h3>{{ trans('home.subtitle') }}</h3>
                 <h2>{{ trans('home.title') }}</h2>
                 <p>{{ trans('home.description') }}</p>
-                <a href="{{ trans('home.discord.code') }}" target="_blank" class="btn btn-primary btn-lg">{{ trans('home.discord.apply') }}</a>
+                <a href="{{ trans('home.discord.code') }}" target="_blank" rel="noopener" class="btn btn-primary btn-lg">{{ trans('home.discord.apply') }}</a>
             </div>
         </div>
     @endif

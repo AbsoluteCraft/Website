@@ -16,7 +16,7 @@
                 <a href="{{ route('privacy') }}">{{ trans('nav.privacy') }}</a>
             </nav>
             <form class="form-inline col-sm-6 validate" action="//absolutecraft.us10.list-manage.com/subscribe/post?u=bc99df9c74d3261fdc46864d9&amp;id=220613f72e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
-                <h2>{{ trans('nav.newsletter') }}</h2>
+                <h2><label for="mce-EMAIL">{{ trans('nav.newsletter') }}</label></h2>
                 <div id="mc_embed_signup">
                     <div class="form-group">
                         <input type="email" name="EMAIL" class="form-control required email" id="mce-EMAIL" placeholder="Email">

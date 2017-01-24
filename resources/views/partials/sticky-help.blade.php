@@ -8,8 +8,8 @@
         </li>
         <li>
             <div>
-                <a href="{{ trans('home.discord.code') }}" target="_blank"><span class="fa fa-comments"></span></a>
-                <a href="{{ trans('home.discord.code') }}" target="_blank" class="tip">Discord</a>
+                <a href="{{ trans('home.discord.code') }}" target="_blank" rel="noopener"><span class="fa fa-comments"></span></a>
+                <a href="{{ trans('home.discord.code') }}" target="_blank" rel="noopener" class="tip">Discord</a>
             </div>
         </li>
         <li class="last-item">
@@ -135,7 +135,7 @@
             </header>
             <div class="sticky-help__body">
                 <h2>How do I appeal a ban?</h2>
-                <p>You can resolve any issues by talking to us over live chat. Please join our <a href="{{ trans('home.discord.code') }}" target="_blank">Discord server</a>, which is linked by the Chat icon on the green bar. Alternatively, you can email us at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#108;&#111;&#64;&#97;&#98;&#115;&#111;&#108;&#117;&#116;&#101;&#99;&#114;&#97;&#102;&#116;&#46;&#99;&#111;&#46;&#117;&#107;">hello@absolutecraft.co.uk</a>.</p>
+                <p>You can resolve any issues by talking to us over live chat. Please join our <a href="{{ trans('home.discord.code') }}" target="_blank" rel="noopener">Discord server</a>, which is linked by the Chat icon on the green bar. Alternatively, you can email us at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#108;&#111;&#64;&#97;&#98;&#115;&#111;&#108;&#117;&#116;&#101;&#99;&#114;&#97;&#102;&#116;&#46;&#99;&#111;&#46;&#117;&#107;">hello@absolutecraft.co.uk</a>.</p>
             </div>
         </div>
         <div class="sticky-help__page" data-sh-page-name="kb-report">

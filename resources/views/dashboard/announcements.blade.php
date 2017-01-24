@@ -46,7 +46,7 @@
                                 <label class="control-label col-sm-2" for="message">Message</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="message" class="form-control" placeholder="Message">
-                                    <p class="help-block">You can use <a href="https://wiki.ess3.net/mc/" target="_blank">chat color codes</a></p>
+                                    <p class="help-block">You can use <a href="https://wiki.ess3.net/mc/" target="_blank" rel="noopener">chat color codes</a></p>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                                 <label class="control-label col-sm-2" for="message">Message</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="message" class="form-control" placeholder="Message">
-                                    <p class="help-block">You can use <a href="https://wiki.ess3.net/mc/" target="_blank">chat color codes</a></p>
+                                    <p class="help-block">You can use <a href="https://wiki.ess3.net/mc/" target="_blank" rel="noopener">chat color codes</a></p>
                                 </div>
                             </div>
                         </div>
