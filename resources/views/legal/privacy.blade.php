@@ -29,7 +29,7 @@
             <p>Ads appearing on any of our websites may be delivered to users by advertising partners, who may set cookies. These cookies allow the ad server to recognize your computer each time they send you an online advertisement to compile information about you or others who use your computer. This information allows ad networks to, among other things, deliver targeted advertisements that they believe will be of most interest to you. This Privacy Policy covers the use of cookies by AbsoluteCraft and does not cover the use of cookies by any advertisers.</p>
             <h3>Privacy Policy Changes</h3>
             <p>Although most changes are likely to be minor, AbsoluteCraft may change its Privacy Policy from time to time, and in AbsoluteCraft's sole discretion. AbsoluteCraft encourages visitors to frequently check this page for any changes to its Privacy Policy. Your continued use of this site after any change in this Privacy Policy will constitute your acceptance of such change.</p><br>
-            <p style="color: #999;">Adapted from <a href="https://automattic.com/privacy" target="_blank" style="color: #999; text-decoration: none;">Automattic</a></p>
+            <p style="color: #999;">Adapted from <a href="https://automattic.com/privacy" target="_blank" rel="noopener" style="color: #999; text-decoration: none;">Automattic</a></p>
         </div>
     </main>
 @stop

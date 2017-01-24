@@ -6,17 +6,17 @@
             <div class="row">
                 <div class="item item-lg">
                     <div class="item-embed">
-                        <div class="lazyframe" data-vendor="youtube" data-src="http://www.youtube.com/embed/MPpLmp9BnEs&showinfo=0&rel=0&allowfullscreen=1"></div>
+                        <div class="lazyframe" data-vendor="youtube" data-src="http://www.youtube.com/embed/MPpLmp9BnEs&showinfo=0&rel=0"></div>
                     </div>
                 </div>
                 <div class="item">
                     <div class="item-embed">
-                        <div class="lazyframe" data-vendor="youtube" data-src="http://www.youtube.com/embed/NZRzY8j7MW4&showinfo=0&rel=0&allowfullscreen=1"></div>
+                        <div class="lazyframe" data-vendor="youtube" data-src="http://www.youtube.com/embed/NZRzY8j7MW4&showinfo=0&rel=0"></div>
                     </div>
                 </div>
                 <div class="item">
                     <div class="item-embed">
-                        <div class="lazyframe" data-vendor="youtube" data-src="http://www.youtube.com/embed/R2xeRW2AVNc&showinfo=0&rel=0&allowfullscreen=1"></div>
+                        <div class="lazyframe" data-vendor="youtube" data-src="http://www.youtube.com/embed/R2xeRW2AVNc&showinfo=0&rel=0"></div>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                     <div class="col-sm-8">
                         <h1>{{ trans('home.apply.title') }}</h1>
                         <p>{!! trans('home.apply.content') !!}</p>
-                        <a href="{{ trans('home.discord.code') }}" target="_blank" class="btn btn-success">{{ trans('home.discord.apply') }}</a>
+                        <a href="{{ trans('home.discord.code') }}" target="_blank" rel="noopener" class="btn btn-success">{{ trans('home.discord.apply') }}</a>
                     </div>
                     <div class="col-sm-4">
                         <img src="{{ assets('apartments.gif') }}" alt="Apartments Render" class="img-responsive">

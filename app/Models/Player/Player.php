@@ -129,4 +129,12 @@ class Player extends Model {
 		return implode('', $images);
 	}
 
+	public function toArray() {
+		$attributes = parent::toArray();
+
+		$attributes['registered'] = $this->user ? !!$this->user->username : false;
+
+		return array_merge($attributes, $this->relationsToArray());
+	}
+
 }

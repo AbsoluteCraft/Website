@@ -20,7 +20,7 @@
                     @foreach($donations as $donation)
                         <tr>
                             <td class="text-center avatar-col"><img src="{{ player_avatar($donation->user->uuid) }}" alt="{{ $donation->user->username }}"></td>
-                            <td><a href="{{ route('player', ['player' => $donation->user->username]) }}" target="_blank"><span class="text-{{ $donation->user->rank->name }} usernameFilter">{{ $donation->user->username }}</span></a></td>
+                            <td><a href="{{ route('player', ['player' => $donation->user->username]) }}" target="_blank" rel="noopener"><span class="text-{{ $donation->user->rank->name }} usernameFilter">{{ $donation->user->username }}</span></a></td>
                             <td><span class="label label-{{ $donation->rank->name }}">{{ $donation->rank->title }}</span></td>
                             <td>£{{ number_format($donation->amount, 2) }}</td>
                             <td>
