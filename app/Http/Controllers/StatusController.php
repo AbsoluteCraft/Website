@@ -2,32 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Libs\MulticraftAPI;
+use App\Repositories\MulticraftRepository;
 
 class StatusController extends Controller {
 
 	public function get() {
 		$servers = [];
-		$api = new MulticraftAPI();
-		$response = $api->listServers();
+		$multicraft = new MulticraftRepository();
+		$response = $multicraft->listServers();
 
-		if($response['data']) {
-			$list = $response['data']['Servers'];
+		if($response != null) {
+			$list = $response['Servers'];
 
 			foreach($list as $id => $name) {
-				$server = $api->getServer($id);
+				$server = $multicraft->getServer($id);
 
-				if($server['data']) {
-					$name = $server['data']['Server']['name'];
+				if($server) {
+					$name = $server['Server']['name'];
 					if($name == 'BungeeCord') {
 						$name = 'Lobby';
 					}
 
-					$status = $api->getServerStatus($id);
+					$status = $multicraft->getServerStatus($id);
 
-					if($status['data']) {
-						$servers[$name] = array_merge($status['data'], [
-							'online' => $status['data']['status'] == 'online'
+					if($status) {
+						$servers[$name] = array_merge($status, [
+							'online' => $status['status'] == 'online'
 						]);
 					}
 				}
