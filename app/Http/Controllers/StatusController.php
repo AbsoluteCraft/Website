@@ -8,7 +8,7 @@ class StatusController extends Controller {
 
 	public function get() {
 		$servers = [];
-		$api = new MulticraftAPI('http://mc-ac.com/panel/api.php', 'admin', 'SjEgNbX*EG9QPd');
+		$api = new MulticraftAPI();
 		$response = $api->listServers();
 
 		if($response['data']) {
