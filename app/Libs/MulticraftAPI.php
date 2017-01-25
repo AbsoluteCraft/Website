@@ -120,11 +120,11 @@ class MulticraftAPI
 		'deleteDatabase'            => array('server_id'),
 	);
 
-	public function __construct($url, $user, $key)
+	public function __construct()
 	{
-		$this->url = $url;
-		$this->user = $user;
-		$this->key = $key;
+		$this->url = env('MULTICRAFT_URL');
+		$this->user = env('MULTICRAFT_USER');
+		$this->key = env('MULTICRAFT_KEY');
 	}
 
 	public function __call($function, $args)
