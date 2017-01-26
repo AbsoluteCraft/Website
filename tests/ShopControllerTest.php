@@ -12,13 +12,11 @@ class ShopControllerTest extends TestCase {
     }
 
     public function testShopDonate() {
-    	$resp = $this->actingAs(\App\Models\User::find(1))
+    	$this->actingAs(\App\Models\User::find(1))
 			->post(route('shop.donate'), [
 				'rank' => 'vip'
-			]);
-
-    	$resp->assertResponseStatus(200);
-		$resp->assertViewHas('fields');
+			])
+			->assertResponseStatus(200);
 	}
 
 }
