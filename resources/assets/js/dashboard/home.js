@@ -1,12 +1,12 @@
 var Chart = require('chart.js');
 var moment = require('moment');
+var qwest = require('qwest');
 
 module.exports = {
     load: function() {
         var format = {
-            day: 'h:mm A',
-            week: 'ddd',
-            month: 'MMM D'
+            hour: 'h:mm A',
+            day: 'ddd'
         };
 
         var playersOnlineWidget = $('#widget-players-online');
@@ -15,9 +15,9 @@ module.exports = {
         new Chart(playersOnlineWidget.find('.chart'), {
             type: 'line',
             data: {
-                labels: Object.keys(playersOnline.data).map(function(date) {return moment(date).format(format[playersOnline.scale])}),
+                labels: Object.keys(playersOnline.data).map(date => moment(date).format(format[playersOnline.scale])),
                 datasets: [{
-                    data: Object.keys(playersOnline.data).map(function(date) {return playersOnline.data[date]}),
+                    data: Object.keys(playersOnline.data).map((date) => playersOnline.data[date]),
                     backgroundColor: 'rgba(13, 219, 228, 0.4)',
                     borderColor: 'transparent',
                     pointRadius: 0,
@@ -37,5 +37,21 @@ module.exports = {
                 }
             }
         });
+
+        window.setInterval(function() {
+            qwest.get($('#resources-url').text())
+                .then(function(xhr, resp) {
+                    $('#cpu-bar').attr('aria-valuenow', resp.average.cpu);
+                    $('#cpu-bar').css('width', resp.average.cpu + '%');
+                    $('#cpu-bar').text(resp.average.cpu + '%');
+
+                    $('#memory-bar').attr('aria-valuenow', resp.average.memory);
+                    $('#memory-bar').css('width', resp.average.memory + '%');
+                    $('#memory-bar').text(resp.average.memory + '%');
+                })
+                .catch(function(err) {
+                    console.error(err);
+                });
+        }, 10000); // 10 seconds
     }
 };

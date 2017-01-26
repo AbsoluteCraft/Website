@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
+use App\Http\Controllers\Controller;
 use App\Models\Player\Background;
 use App\Models\Shop\Donation;
 use App\Repositories\MulticraftRepository;

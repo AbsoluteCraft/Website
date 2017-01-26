@@ -28,7 +28,11 @@ class PlayersOnlineRepository {
 		for($i = 0; $i < $amount; $i++) {
 			$dateT = clone $dateTo;
 			$sub = 'sub' . ucfirst($scale) . 's' ;
-			$date = $dateT->$sub($i)->startOfDay()-> __toString();
+			if($scale == 'day') {
+				$date = $dateT->$sub($i)->startOfDay()->__toString();
+			} else {
+				$date = $dateT->$sub($i)->minute(0)->second(0)->__toString();
+			}
 
 			$playersOnline[$date] = 0;
 		}
