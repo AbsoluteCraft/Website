@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
+use App\Http\Controllers\Controller;
 use App\Models\Player\Background;
 use App\Models\Shop\Donation;
+use App\Repositories\MulticraftRepository;
 use App\Repositories\PlayersOnlineRepository;
 use App\Models\User;
 use App\Repositories\UserRepository;
@@ -28,7 +30,13 @@ class DashboardController extends Controller {
 		$dateTo = Carbon::parse($request->get('to', 'now'));
 		$playersOnline = $this->playersOnlineRepository->load($dateFrom, $dateTo);
 
+		$multicraft = new MulticraftRepository();
+		$onlineRn = count($multicraft->getOnlinePlayers());
+		$resources = $multicraft->getGlobalServerResources();
+
 		return view('dashboard.home', [
+			'onlineRn' => $onlineRn,
+			'resources' => $resources,
 			'playersOnline' => $playersOnline
 		]);
 	}
