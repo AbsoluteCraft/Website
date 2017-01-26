@@ -25,9 +25,7 @@ class AuthController extends Controller {
 	private $mailchimp;
 	private $mailchimpListId = '220613f72e';
 
-    public function __construct(\Mailchimp $mailchimp) {
-    	$this->mailchimp = $mailchimp;
-
+    public function __construct() {
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
@@ -59,9 +57,11 @@ class AuthController extends Controller {
 		$flash = 'You are registered as ' . $request->get('username') . '!';
 
 		if($request->has('newsletter')) {
+			$mailchimp = new \Mailchimp(env('MAILCHIMP_API_KEY'));
+
 			try {
 				/** @noinspection PhpParamsInspection */
-				$this->mailchimp->lists
+				$mailchimp->lists
 					->subscribe($this->mailchimpListId, [
 						'email' => $request->get('email')
 					]);
