@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Libs\BBCodeParser;
+namespace App\Libs\BBCodeParser\Traits;
 
 trait ArrayTrait {
 
