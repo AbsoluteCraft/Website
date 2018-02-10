@@ -35,9 +35,10 @@ class MulticraftRepository {
 		$players = [];
 		foreach($this->servers as $id) {
 			$response = $this->getServerStatus($id, true);
-
-			foreach($response['players'] as $player) {
-				$players[] = $player;
+			if($response['players']) {
+				foreach($response['players'] as $player) {
+					$players[] = $player;
+				}
 			}
 		}
 

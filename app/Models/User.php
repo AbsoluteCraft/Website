@@ -6,8 +6,12 @@ use App\Models\Player\Background;
 use App\Models\Player\Player;
 use Golonka\BBCode\BBCodeParser;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Auth\Passwords\CanResetPassword;
 
 class User extends Authenticatable {
+
+	use Notifiable, CanResetPassword;
 
     /**
      * The attributes that are mass assignable.

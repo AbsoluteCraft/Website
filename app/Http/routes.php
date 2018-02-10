@@ -65,15 +65,19 @@ Route::get('leaderboards', ['as' => 'leaderboards', 'uses' => 'LeaderboardContro
 */
 
 Route::group(['namespace' => 'Auth'], function() {
-	Route::get('login', ['as' => 'auth.login', 'uses' => 'AuthController@getLogin']);
-	Route::post('login', ['as' => 'auth.login-post', 'uses' => 'AuthController@postLogin']);
+	Route::get('login', ['as' => 'auth.login', 'uses' => 'LoginController@showLoginForm']);
+	Route::post('login', ['as' => 'auth.login-post', 'uses' => 'LoginController@login']);
 
 	Route::post('logout', ['as' => 'auth.logout', 'uses' => 'AuthController@logout']);
 
-	Route::get('register', ['as' => 'auth.register', 'uses' => 'AuthController@getRegister']);
-	Route::post('register', ['as' => 'auth.register-post', 'uses' => 'AuthController@postRegister']);
+	Route::get('register', ['as' => 'auth.register', 'uses' => 'RegisterController@showRegistrationForm']);
+	Route::post('register', ['as' => 'auth.register-post', 'uses' => 'RegisterController@register']);
 
-	Route::get('recover/password', ['as' => 'auth.recover-password', 'uses' => 'PasswordController@getReset']);
+	Route::get('recover/password', ['as' => 'auth.forgot-password', 'uses' => 'ForgotPasswordController@showLinkRequestForm']);
+	Route::post('recover/password', ['as' => 'auth.forgot-password-post', 'uses' => 'ForgotPasswordController@sendResetLinkEmail']);
+
+	Route::get('password/reset/{token}', ['as' => 'auth.reset-password', 'uses' => 'ResetPasswordController@showResetForm']);
+	Route::post('password/reset', ['as' => 'auth.reset-password-post', 'uses' => 'ResetPasswordController@reset']);
 
 	Route::post('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 });

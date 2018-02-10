@@ -9,7 +9,7 @@
             </div>
             <div class="col-md-6">
                 <form action="{{ route('dashboard.users.update', ['id' => $user->id]) }}" method="post" class="form-horizontal">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    {{ csrf_field() }}
                     <div class="form-group">
                         <label for="username" class="col-sm-2 control-label">Username</label>
                         <div class="col-sm-8">

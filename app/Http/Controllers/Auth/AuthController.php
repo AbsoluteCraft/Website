@@ -9,11 +9,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller {
 
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    use ThrottlesLogins;
 
     /**
      * Where to redirect users after login / registration.
@@ -26,7 +25,11 @@ class AuthController extends Controller {
 	private $mailchimpListId = '220613f72e';
 
     public function __construct() {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->middleware('guest', ['except' => 'logout']);
+    }
+
+    public function getLogin(Request $request) {
+        return view('auth.login');
     }
 
     public function postRegister(Request $request) {

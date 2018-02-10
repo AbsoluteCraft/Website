@@ -92,7 +92,7 @@
                 </div>
             </div>
         </div>
-        <span class="hide" id="csrf">{{ csrf_token()  }}</span>
+        <span class="hide" id="csrf">{{ csrf_token() }}</span>
         <span class="hide" id="shop-donate-url">{{ route('shop.donate') }}</span>
     </main>
 @stop
