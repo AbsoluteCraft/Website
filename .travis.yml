@@ -1,7 +1,7 @@
 language: php
 
 php:
-  - 7.0
+  - 7.1
 
 before_install: if [[ `npm -v` != 4* ]]; then npm i -g npm; fi
 
