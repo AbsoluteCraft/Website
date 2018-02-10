@@ -1,9 +1,9 @@
 language: php
 
 php:
-  - 7.0
+  - 7.1
 
-before_install: if [[ `npm -v` != 4* ]]; then npm i -g npm; fi
+before_install: if [[ `npm -v` != 5* ]]; then npm i -g npm; fi
 
 before_script:
   - cp .env.travis .env
@@ -11,11 +11,7 @@ before_script:
   - composer self-update
   - composer install --no-interaction
   - npm install
-  - gulp --production
+  - npm run prod
   - php artisan key:generate
   - php artisan migrate
   - php artisan db:seed
-
-script:
-  - vendor/bin/phpunit
-

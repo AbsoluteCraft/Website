@@ -91,11 +91,7 @@ return [
     |
     */
 
-    'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
-        ],
-    ],
+    'mojangplayer' => 'This username is not registered with Mojang. Please use your Minecraft username.',
 
     /*
     |--------------------------------------------------------------------------

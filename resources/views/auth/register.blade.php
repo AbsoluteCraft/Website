@@ -6,7 +6,7 @@
             <div class="col-lg-8 col-lg-offset-2">
                 <h3>Register with {{ trans('general.name') }}</h3>
                 <form action="{{ route('auth.register-post') }}" method="post" class="form-horizontal">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    {{ csrf_field() }}
                     <div class="form-group">
                         <label for="username" class="col-md-2 control-label">Username</label>
                         <div class="col-md-5">

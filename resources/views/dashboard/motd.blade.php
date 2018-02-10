@@ -10,7 +10,7 @@
                     <div class="pull-right">
                         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#edit-motd">Edit</button>
                         <form method="post" style="display:inline">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            {{ csrf_field() }}
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="id" value="{{ $motd->id }}">
                             <button type="submit" class="btn btn-danger">Disable</button>
@@ -39,7 +39,7 @@
                         <h4 class="modal-title">Add new MOTD</h4>
                     </div>
                     <form method="post" class="form-horizontal">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        {{ csrf_field() }}
                         <div class="modal-body">
                             <div class="form-group">
                                 <label class="control-label col-sm-2" for="message">Message</label>
@@ -83,7 +83,7 @@
                             <h4 class="modal-title">Edit MOTD</h4>
                         </div>
                         <form method="post" class="form-horizontal">
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            {{ csrf_field() }}
                             <input type="hidden" name="_method" value="PUT">
                             <input type="hidden" name="id" value="{{ $motd->id }}">
                             <div class="modal-body">

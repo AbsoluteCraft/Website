@@ -34,7 +34,7 @@
                             <td class="text-center">
                                 <div class="btn-group">
                                     <form action="{{ route('dashboard.donations.approve', ['id' => $donation->id]) }}" method="post">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        {{ csrf_field() }}
                                         @if(!$donation->approved)
                                             <button type="submit" class="btn btn-success">Approve</button>
                                         @else
