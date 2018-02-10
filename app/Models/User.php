@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\Player\Background;
 use App\Models\Player\Player;
-use Golonka\BBCode\BBCodeParser;
+use App\Libs\BBCodeParser\BBCodeParser;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Passwords\CanResetPassword;
