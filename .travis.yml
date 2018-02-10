@@ -11,7 +11,7 @@ before_script:
   - composer self-update
   - composer install --no-interaction
   - npm install
-  - gulp --production
+  - npm run prod
   - php artisan key:generate
   - php artisan migrate
   - php artisan db:seed
