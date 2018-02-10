@@ -17,7 +17,8 @@
         "phpunit/phpunit": "~5.7",
         "symfony/css-selector": "3.1.*",
         "symfony/dom-crawler": "3.1.*",
-        "laravel/homestead": "^3.0"
+        "laravel/homestead": "^3.0",
+        "laravel/dusk": "^1.0"
     },
     "autoload": {
         "classmap": [
@@ -28,9 +29,9 @@
         }
     },
     "autoload-dev": {
-        "classmap": [
-            "tests/TestCase.php"
-        ]
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     },
     "scripts": {
         "post-root-package-install": [
